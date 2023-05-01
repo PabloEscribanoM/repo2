@@ -1,5 +1,6 @@
 package jabatosrb.pfdamapj;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -10,6 +11,7 @@ public class Materiales {
     private SimpleStringProperty matDescripcion;
     private SimpleStringProperty matBeneficiario;
     private SimpleIntegerProperty matIdClub;
+
 
     public Materiales(Integer matId, String matNombre, Integer matStock, String matDescripcion, String matBeneficiario, Integer matIdClub) {
         this.matId = new SimpleIntegerProperty(matId);

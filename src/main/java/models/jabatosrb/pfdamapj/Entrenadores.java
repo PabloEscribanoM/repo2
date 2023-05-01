@@ -22,6 +22,8 @@ public class Entrenadores {
     private SimpleIntegerProperty idClub;
     private SimpleStringProperty cuentaBancaria;
 
+    private  SimpleStringProperty email;
+
     public Entrenadores(Integer id, String nombre, String apellidos, String telefono, Double salario, Date fechaAlta, Date fechaBaja, Date fechaNacimiento, String categoria, String dni, Integer idClub, String cuentaBancaria) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
