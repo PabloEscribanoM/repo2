@@ -323,6 +323,7 @@
                               <TableView fx:id="materialTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <columns>
                                     <TableColumn fx:id="materialNombre" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn fx:id="materialPrecio" prefWidth="75.0" text="Precio" />
                                     <TableColumn fx:id="materialStock" prefWidth="75.0" text="Stock" />
                                     <TableColumn fx:id="materialBeneficiario" prefWidth="75.0" text="Beneficiario" />
                                  </columns>
