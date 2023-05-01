@@ -320,7 +320,7 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                              <TableView fx:id="materialTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <columns>
                                     <TableColumn fx:id="materialNombre" prefWidth="75.0" text="Nombre" />
                                     <TableColumn fx:id="materialStock" prefWidth="75.0" text="Stock" />
