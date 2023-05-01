@@ -1,9 +1,7 @@
 package jabatosrb.pfdampj;
 
-import jabatosrb.pfdamapj.Administrador;
-import jabatosrb.pfdamapj.Escuela;
-import jabatosrb.pfdamapj.Socio;
-import jabatosrb.pfdamapj.SocioJugador;
+import jabatosrb.pfdamapj.*;
+import javafx.scene.paint.Material;
 
 public class PersistentData {
 
@@ -13,6 +11,7 @@ public class PersistentData {
     private static SocioJugador socioJugadorMod;
     private static Escuela escuelaMod;
     private static Administrador adminMod;
+    private static Materiales materialesMod;
 
     public static SocioJugador getSocioJugadorMod() {
         return socioJugadorMod;
@@ -60,5 +59,13 @@ public class PersistentData {
 
     public static void setAdminMod(Administrador adminMod) {
         PersistentData.adminMod = adminMod;
+    }
+
+    public static Materiales getMaterialesMod() {
+        return materialesMod;
+    }
+
+    public static void setMaterialesMod(Materiales materialesMod) {
+        PersistentData.materialesMod = materialesMod;
     }
 }
