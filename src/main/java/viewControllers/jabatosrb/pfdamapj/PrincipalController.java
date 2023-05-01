@@ -32,8 +32,6 @@ import java.util.ResourceBundle;
 
 public class PrincipalController implements Initializable {
 
-
-
     // Socios
     @FXML
     private TextField sociosText;
@@ -223,13 +221,13 @@ public class PrincipalController implements Initializable {
 
     public void entrenadoresAniadir(ActionEvent actionEvent) throws IOException {
         ventanaModal(actionEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Nuevo entrenador");
-        PersistentData.setEntrenadoresMod(null);
+        PersistentData.setEntrenadorMod(null);
         actualizarEntrenadores();
     }
     public void entrenadoresModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setEntrenadorMod((Entrenadores) entrenadoresTabla.getSelectionModel().getSelectedItem());
         ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Escuela id: " + PersistentData.getEntrenadorMod().getId());
-        PersistentData.setEntrenadoresMod(null);
+        PersistentData.setEntrenadorMod(null);
         actualizarEntrenadores();
     }
     public void materialBuscar(ActionEvent actionEvent) {actualizarMateriales();}

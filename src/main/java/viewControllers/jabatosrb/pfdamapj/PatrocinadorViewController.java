@@ -1,6 +1,7 @@
 package jabatosrb.pfdamapj;
 
 import jabatosrb.pfdampj.PersistentData;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -41,5 +42,14 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
         }else{
             btnNext_mod.setVisible(false);
         }
+    }
+
+    public void actionNext_mod(ActionEvent actionEvent) {
+    }
+
+    public void actionAdd_del(ActionEvent actionEvent) {
+    }
+
+    public void actionCancel(ActionEvent actionEvent) {
     }
 }

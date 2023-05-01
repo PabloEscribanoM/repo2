@@ -13,6 +13,7 @@ public class PersistentData {
     private static Administrador adminMod;
     private static Materiales materialesMod;
     private static Patrocinador patrocinadorMod;
+    private static Entrenadores entrenadorMod;
 
     public static SocioJugador getSocioJugadorMod() {
         return socioJugadorMod;
@@ -76,5 +77,13 @@ public class PersistentData {
 
     public static void setPatrocinadorMod(Patrocinador patrocinadorMod) {
         PersistentData.patrocinadorMod = patrocinadorMod;
+    }
+
+    public static Entrenadores getEntrenadorMod() {
+        return entrenadorMod;
+    }
+
+    public static void setEntrenadorMod(Entrenadores entrenadorMod) {
+        PersistentData.entrenadorMod = entrenadorMod;
     }
 }
