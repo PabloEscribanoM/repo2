@@ -207,5 +207,4 @@ public class Administrador {
     public void setIdClub(int idClub) {
         this.idClub.set(idClub);
     }
-
 }
