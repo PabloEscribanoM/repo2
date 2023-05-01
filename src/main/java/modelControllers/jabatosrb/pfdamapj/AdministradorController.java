@@ -138,8 +138,7 @@ public class AdministradorController {
         String sql = "UPDATE Administrador SET " +
                 "Administrador_Nombre = ?, Administrador_Apellidos = ?, " +
                 "Administrador_Email = ?, Administrador_Area = ?, " +
-                "Administrador_DNI = ?, " +
-                "Administrador_fechaNacimiento = ?, Administrador_Salario = ?, " +
+                "Administrador_DNI = ?, Administrador_fechaNacimiento = ?, Administrador_Salario = ?," +
                 "Administrador_cuentaBancaria = ? " +
                 "WHERE Administrador_id = ?";
 
