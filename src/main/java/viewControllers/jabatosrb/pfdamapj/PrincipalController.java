@@ -78,10 +78,17 @@ public class PrincipalController implements Initializable {
     private TextField materialText;
     private ArrayList<Materiales> listaMaterial;
     @FXML
-    public TableView materialTabla;
+    private TableView materialTabla;
     @FXML
-    public TableColumn materialNombre,materialStock,materialBeneficiario;
-
+    private TableColumn materialNombre,materialStock,materialBeneficiario;
+    //patrocinador
+    @FXML
+    private TableView patroTabla;
+    @FXML
+    private TableColumn patroNombre, patroAporte, patroIBAN;
+    @FXML
+    private TextField patroText;
+    private ArrayList<Patrocinador> patrocinadores;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -213,7 +220,7 @@ public class PrincipalController implements Initializable {
     }
     public void adminModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setAdminMod((Administrador) adminTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/admin_view.fxml"), "Modificar id: " + PersistentData.getAdminMod().getId());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/admin_view.fxml"), "Admin id: " + PersistentData.getAdminMod().getId());
         PersistentData.setAdminMod(null);
         actualizarAdministracion();
     }
@@ -226,7 +233,7 @@ public class PrincipalController implements Initializable {
     }
     public void entrenadoresModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setEntrenadorMod((Entrenadores) entrenadoresTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Escuela id: " + PersistentData.getEntrenadorMod().getId());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Entrenador id: " + PersistentData.getEntrenadorMod().getId());
         PersistentData.setEntrenadorMod(null);
         actualizarEntrenadores();
     }
@@ -238,10 +245,28 @@ public class PrincipalController implements Initializable {
     }
     public void materialModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setMaterialesMod((Materiales) materialTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Escuela id: " + PersistentData.getMaterialesMod().getMatId());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Material id: " + PersistentData.getMaterialesMod().getMatId());
         PersistentData.setMaterialesMod(null);
         actualizarMateriales();
     }
+
+    public void patroBuscar(ActionEvent actionEvent) {
+        actualizarPatrocinadores();
+    }
+
+    public void patroAniadir(ActionEvent actionEvent) throws IOException {
+        ventanaModal(actionEvent, PrincipalController.class.getResource("fxml/patrocinador_view.fxml"), "Nuevo patrocinador");
+        PersistentData.setPatrocinadorMod(null);
+        actualizarPatrocinadores();
+    }
+
+    public void patroModificar(MouseEvent mouseEvent) throws IOException {
+        PersistentData.setPatrocinadorMod((Patrocinador) patroTabla.getSelectionModel().getSelectedItem());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/patrocinador_view.fxml"), "Patrocinador id: " + PersistentData.getPatrocinadorMod().getId());
+        PersistentData.setPatrocinadorMod(null);
+        actualizarMateriales();
+    }
+
     public void cerrarSesion(ActionEvent actionEvent) throws IOException {
         PersistentData.setUser(null);
         Parent root = FXMLLoader.load(PrincipalController.class.getResource("fxml/logIn_view.fxml"));
@@ -312,5 +337,14 @@ public class PrincipalController implements Initializable {
             throw new RuntimeException(e);
         }
         entrenadoresTabla.setItems(FXCollections.observableArrayList(listaEntrenadores));
+    }
+
+    private void actualizarPatrocinadores(){
+        try{
+            patrocinadores = PatrocinadorController.getFiltered(patroText.getText().trim());
+        } catch (SQLException | UnsupportedEncodingException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+        patroTabla.setItems(FXCollections.observableArrayList(patrocinadores));
     }
 }
