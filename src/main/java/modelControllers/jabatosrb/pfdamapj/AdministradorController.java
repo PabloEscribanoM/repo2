@@ -91,7 +91,7 @@ public class AdministradorController {
     }
     public static ArrayList<Administrador> getFiltered(String filtro) throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         ArrayList<Administrador> Administradores = new ArrayList<Administrador>();
-        String sql = "SELECT * FROM Administrador WHERE Administrador_Nombre LIKE CONCAT('%',?,'%') OR Administrador_Apellidos LIKE CONCAT('%',?,'%') AND WHERE Administrador_fechaBaja IS NULL";
+        String sql = "SELECT * FROM Administrador WHERE Administrador_Nombre LIKE CONCAT('%',?,'%') OR Administrador_Apellidos LIKE CONCAT('%',?,'%') AND Administrador_fechaBaja IS NULL";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
         ps.setString(1, filtro);
