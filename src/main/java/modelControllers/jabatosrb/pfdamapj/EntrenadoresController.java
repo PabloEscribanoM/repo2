@@ -49,7 +49,8 @@ public class EntrenadoresController {
                     rs.getString("Entrenadores_categoria"),
                     rs.getString("Entrenadores_Dni"),
                     rs.getInt("Entrenadores_id_Club"),
-                    rs.getString("Entrenadores_cuentaBancaria")
+                    rs.getString("Entrenadores_cuentaBancaria"),
+                    rs.getString("Entrenadores_email")
             ));
         }
 
@@ -95,13 +96,14 @@ public class EntrenadoresController {
         ps.close();
     }
     public static void addEntrenadores(Entrenadores entrenadores) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Entrenadores VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, NULL, ?)";
+        String sql = "INSERT INTO Entrenadores VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, 1, ?)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, entrenadores.getNombre());
         ps.setString(2, entrenadores.getApellidos());
         ps.setString(3, entrenadores.getTelefono());
+        //email
         ps.setDouble(4, entrenadores.getSalario());
         ps.setDate(5, new java.sql.Date(entrenadores.getFechaNacimientoDate().getTime()));
         ps.setDate(6, new java.sql.Date(new Date().getTime()));

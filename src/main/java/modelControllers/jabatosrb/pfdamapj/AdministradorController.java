@@ -53,6 +53,7 @@ public class AdministradorController {
                     fechaNacimiento,
                     rs.getDouble("Administrador_salario"),
                     rs.getString("Administrador_cuentaBancaria"),
+                    rs.getString("Administrador_Telefono"),
                     rs.getInt("Administrador_Club_id"));
         }
         rs.close();
@@ -124,6 +125,7 @@ public class AdministradorController {
                     FechaNacimiento,
                     rs.getDouble("Administrador_salario"),
                     rs.getString("Administrador_cuentaBancaria"),
+                    rs.getString("Administrador_Telefono"),
                     rs.getInt("Administrador_Club_id")
             ));
         }
@@ -170,12 +172,13 @@ public class AdministradorController {
         ps.close();
     }
     public static void addAdministrador(Administrador administrador) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Administrador VAlUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL , ? , ? , NULL )";
+        String sql = "INSERT INTO Administrador VAlUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL , ? , ? , 1 )";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, administrador.getNombre());
         ps.setString(2, administrador.getApellidos());
+        //telefono
         ps.setString(3, administrador.getEmail());
         ps.setString(4, Encrypter.encriptar(administrador.getPwd(), PersistentData.getEncryptKey()));
         ps.setString(5, administrador.getArea());

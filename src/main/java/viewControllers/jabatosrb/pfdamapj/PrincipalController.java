@@ -148,10 +148,10 @@ public class PrincipalController implements Initializable {
         entrenadoresIBAN.setCellValueFactory(new PropertyValueFactory<>("cuentaBancaria"));
         actualizarEntrenadores();
         // tabla materiales
-        materialNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        materialPrecio.setCellFactory(new PropertyValueFactory<>("precio"));
-        materialStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        materialBeneficiario.setCellValueFactory(new PropertyValueFactory<>("beneficiario"));
+        materialNombre.setCellValueFactory(new PropertyValueFactory<>("matNombre"));
+        materialPrecio.setCellValueFactory(new PropertyValueFactory<>("matPrecio"));
+        materialStock.setCellValueFactory(new PropertyValueFactory<>("matStock"));
+        materialBeneficiario.setCellValueFactory(new PropertyValueFactory<>("matBeneficiario"));
         actualizarMateriales();
         // tabla patrocinador
         patroNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));

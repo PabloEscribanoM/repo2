@@ -11,9 +11,6 @@ public class Materiales {
     private SimpleStringProperty matDescripcion;
     private SimpleStringProperty matBeneficiario;
     private SimpleIntegerProperty matIdClub;
-
-    
-
     private SimpleDoubleProperty matPrecio;
 
     public Materiales(Integer matId, String matNombre, Integer matStock, String matDescripcion, String matBeneficiario, Integer matIdClub, Double matPrecio) {

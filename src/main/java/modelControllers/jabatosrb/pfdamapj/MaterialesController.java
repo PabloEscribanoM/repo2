@@ -30,7 +30,8 @@ public class MaterialesController {
                     rs.getInt("Mat_stock"),
                     rs.getString("Mat_descripcion"),
                     rs.getString("Mat_Beneficiario"),
-                    rs.getInt("Mat_id_Club")
+                    rs.getInt("Mat_id_Club"),
+                    rs.getDouble("Mat_precio")
             ));
         }
 
@@ -44,7 +45,7 @@ public class MaterialesController {
     public static void updateMateriales(Materiales materiales) throws SQLException, ParseException {
         String sql = "UPDATE Materiales SET " +
                 "Mat_nombre = ?, Mat_stock = ?, " +
-                "Mat_descripcion = ?,  Mat_Beneficiario = ? " +
+                "Mat_descripcion = ?,  Mat_Beneficiario = ?, Mat_precio = ? " +
                 "WHERE Mat_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
@@ -53,7 +54,8 @@ public class MaterialesController {
         ps.setInt(2, materiales.getMatStock());
         ps.setString(3, materiales.getMatDescripcion());
         ps.setString(4, materiales.getMatBeneficiario());
-        ps.setInt(5, materiales.getMatId());
+        ps.setDouble(5, materiales.getMatPrecio());
+        ps.setInt(6, materiales.getMatId());
 
         ps.executeUpdate();
 
@@ -71,14 +73,15 @@ public class MaterialesController {
         ps.close();
     }
     public static void addMateriales(Materiales materiales) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Materiales VAlUES (NULL, ?, ?, ?, ?, NULL)";
+        String sql = "INSERT INTO Materiales VAlUES (NULL, ?, ?, ?, ?, ?, 1)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, materiales.getMatNombre());
-        ps.setInt(2, materiales.getMatStock());
-        ps.setString(3, materiales.getMatDescripcion());
-        ps.setString(4, materiales.getMatBeneficiario());
+        ps.setDouble(2, materiales.getMatPrecio());
+        ps.setInt(3, materiales.getMatStock());
+        ps.setString(4, materiales.getMatDescripcion());
+        ps.setString(5, materiales.getMatBeneficiario());
 
 
         ps.executeUpdate();

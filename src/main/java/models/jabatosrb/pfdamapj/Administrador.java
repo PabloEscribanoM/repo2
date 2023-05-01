@@ -41,7 +41,7 @@ public class Administrador {
         this.telefono=new SimpleStringProperty(telefono);
         this.idClub = new SimpleIntegerProperty(idClub);
     }
-    public String getTelefono(String telefono){return  telefono;}
+    public String getTelefono(){return  telefono.get();}
     public SimpleStringProperty getTelefonoProperty(){return  telefono;}
     public void setTelefono (String telefono){this.telefono.set(telefono);}
     public int getId() {

@@ -99,7 +99,7 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             else{
                 PersistentData.setAdminMod(new Administrador(0, textNombre.getText().trim(), textApellidos.getText().trim(), textEmail.getText().trim(),
                         null, textArea.getText().trim(), textDni.getText().trim(), new Date(),null, DateFormat.toDate(dateNacimiento.getValue()),
-                         Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),1));
+                         Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),"hacer",1));
 
                 AdministradorController.addAdministrador(PersistentData.getAdminMod());
 

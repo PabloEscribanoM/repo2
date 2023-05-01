@@ -87,9 +87,9 @@ public class MaterialViewController extends ViewUtilities implements Initializab
             if(!validarCampos().equals("OK"))
                 textErr.setText(validarCampos());
             else{
-                PersistentData.setMaterialesMod(new Materiales(0, textNombre.getText().trim(), Integer.parseInt( textStock.getText().trim()), textDesc.getText().trim(), (String)comboBenef.getSelectionModel().getSelectedItem(),1
-                     ));
-
+                PersistentData.setMaterialesMod(new Materiales(0, textNombre.getText().trim(), Integer.parseInt( textStock.getText().trim()), textDesc.getText().trim(),
+                        (String)comboBenef.getSelectionModel().getSelectedItem(),1, 23.0));
+//cambiar precio
                 MaterialesController.addMateriales(PersistentData.getMaterialesMod());
 
                 textNombre.setText("");

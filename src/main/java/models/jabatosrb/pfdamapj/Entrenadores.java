@@ -21,10 +21,9 @@ public class Entrenadores {
     private SimpleStringProperty dni;
     private SimpleIntegerProperty idClub;
     private SimpleStringProperty cuentaBancaria;
+    private SimpleStringProperty email;
 
-    private  SimpleStringProperty email;
-
-    public Entrenadores(Integer id, String nombre, String apellidos, String telefono, Double salario, Date fechaAlta, Date fechaBaja, Date fechaNacimiento, String categoria, String dni, Integer idClub, String cuentaBancaria) {
+    public Entrenadores(Integer id, String nombre, String apellidos, String telefono, Double salario, Date fechaAlta, Date fechaBaja, Date fechaNacimiento, String categoria, String dni, Integer idClub, String cuentaBancaria, String email) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
         this.apellidos = new SimpleStringProperty(apellidos);
@@ -37,6 +36,7 @@ public class Entrenadores {
         this.dni = new SimpleStringProperty(dni);
         this.idClub = new SimpleIntegerProperty(idClub);
         this.cuentaBancaria = new SimpleStringProperty(cuentaBancaria);
+        this.email = new SimpleStringProperty(email);
     }
 
     public int getId() {return id.get();}
@@ -116,4 +116,10 @@ public class Entrenadores {
     public SimpleStringProperty cuentaBancariaProperty() {return cuentaBancaria;}
 
     public void setCuentaBancaria(String cuentaBancaria) {this.cuentaBancaria.set(cuentaBancaria);}
+
+    public String getEmail() {return email.get();}
+
+    public SimpleStringProperty emailProperty() {return email;}
+
+    public void setEmail(String cuentaBancaria) {this.email.set(cuentaBancaria);}
 }
