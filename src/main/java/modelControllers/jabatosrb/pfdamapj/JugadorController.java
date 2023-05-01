@@ -46,7 +46,7 @@ public class JugadorController {
     }
 
     public static void addJugador(Jugador jugador) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Jugadores VAlUES (NULL, ?, ?, ?, ?, ?, ?, 1, ?)";
+        String sql = "INSERT INTO Jugadores VAlUES (NULL, ?, ?, ?, ?, ?, NULL, NULL, ?)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 

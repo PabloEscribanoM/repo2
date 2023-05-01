@@ -63,8 +63,8 @@ public class EntrenadoresController {
         String sql = "UPDATE Entrenadores SET " +
                 "Entrenadores_nombre = ?, Entrenadores_apellidos = ?, " +
                 "Entrenadores_telefono = ?, Entrenadores_salario = ?, " +
-                " Entrenadores_fechaNacimiento = ?, " +
-                "Entrenadores_categoria = ? Entrenadores_cuentaBancaria = ? " +
+                " Entrenadores_fechaNacimiento = ?, Entrenadores_categoria = ?," +
+                " Entrenadores_Dni = ? , Entrenadores_cuentaBancaria = ? " +
                 "WHERE Entrenadores_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
@@ -75,8 +75,9 @@ public class EntrenadoresController {
         ps.setDouble(4, entrenadores.getSalario());
         ps.setDate(5, new java.sql.Date(entrenadores.getFechaNacimientoDate().getTime()));
         ps.setString(6, entrenadores.getCategoria());
-        ps.setString(7, entrenadores.getCuentaBancaria());
-        ps.setInt(8, entrenadores.getId());
+        ps.setString(7, entrenadores.getDni());
+        ps.setString(8, entrenadores.getCuentaBancaria());
+        ps.setInt(9, entrenadores.getId());
 
         ps.executeUpdate();
 
@@ -94,7 +95,7 @@ public class EntrenadoresController {
         ps.close();
     }
     public static void addEntrenadores(Entrenadores entrenadores) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Administrador VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, NULL )";
+        String sql = "INSERT INTO Entrenadores VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, NULL, ?)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
@@ -106,7 +107,8 @@ public class EntrenadoresController {
         ps.setDate(6, new java.sql.Date(new Date().getTime()));
         ps.setDate(7, new java.sql.Date(entrenadores.getFechaBajaDate().getTime()));
         ps.setString(8, entrenadores.getCategoria());
-        ps.setString(9, entrenadores.getCuentaBancaria());
+        ps.setString(9, entrenadores.getDni());
+        ps.setString(10, entrenadores.getCuentaBancaria());
 
 
         ps.executeUpdate();

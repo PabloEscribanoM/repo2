@@ -44,7 +44,7 @@ public class MaterialesController {
     public static void updateMateriales(Materiales materiales) throws SQLException, ParseException {
         String sql = "UPDATE Materiales SET " +
                 "Mat_nombre = ?, Mat_stock = ?, " +
-                "Entrenadores_telefono = ?, Mat_descripcion = ?,  Mat_Beneficiario = ? " +
+                "Mat_descripcion = ?,  Mat_Beneficiario = ? " +
                 "WHERE Mat_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
