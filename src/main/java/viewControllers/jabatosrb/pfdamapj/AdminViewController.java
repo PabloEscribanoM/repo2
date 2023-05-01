@@ -70,7 +70,7 @@ public class AdminViewController extends ViewUtilities implements Initializable 
 
     public void actionNext_mod(ActionEvent actionEvent) {
         if(!validarCampos().equals("OK")){
-            textErr.setText(validarCampos());//POR HACER
+            textErr.setText(validarCampos());
         }else{
             PersistentData.getAdminMod().setNombre(textNombre.getText().trim());
             PersistentData.getAdminMod().setApellidos(textApellidos.getText().trim());
