@@ -237,7 +237,7 @@ public class PrincipalController implements Initializable {
         PersistentData.setEntrenadorMod(null);
         actualizarEntrenadores();
     }
-    public void entrenadoresModificar(MouseEvent mouseEvent) throws IOException {
+    public void entrenadorModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setEntrenadorMod((Entrenadores) entrenadoresTabla.getSelectionModel().getSelectedItem());
         ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Entrenador id: " + PersistentData.getEntrenadorMod().getId());
         PersistentData.setEntrenadorMod(null);

@@ -42,6 +42,8 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
     private TextField textCategoria;
     @FXML
     private DatePicker dateNacimiento;
+    @FXML
+    private TextField textEmail;
     private boolean isMod = false;
 
     @Override
@@ -57,8 +59,9 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             textSalario.setText(PersistentData.getEntrenadorMod().getSalario() + "");
             textTelefono.setText(PersistentData.getEntrenadorMod().getTelefono());
             textCategoria.setText(PersistentData.getEntrenadorMod().getCategoria());
+            textEmail.setText(PersistentData.getEntrenadorMod().getEmail());
             try {
-                dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getAdminMod().getFechaNacimientoaDate()));
+                dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getEntrenadorMod().getFechaNacimientoDate()));
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
@@ -80,6 +83,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             PersistentData.getEntrenadorMod().setCuentaBancaria(textIBAN.getText().trim());
             PersistentData.getEntrenadorMod().setTelefono(textTelefono.getText().trim());
             PersistentData.getEntrenadorMod().setCategoria(textCategoria.getText().trim());
+            PersistentData.getEntrenadorMod().setEmail(textEmail.getText().trim());
 
             EntrenadoresController.updateEntrenadores(PersistentData.getEntrenadorMod());
             cerrarVentana(actionEvent);
@@ -103,7 +107,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             else{
                 PersistentData.setEntrenadorMod(new Entrenadores(0, textNombre.getText().trim(), textApellidos.getText().trim(), textTelefono.getText().trim(),Double.parseDouble(textSalario.getText().trim()),
                         new Date(),null,DateFormat.toDate(dateNacimiento.getValue()),textCategoria.getText().trim(),textDni.getText().trim(),
-                        1,textIBAN.getText().trim(), "por hacer"));
+                        1,textIBAN.getText().trim(), textEmail.getText().trim()));
 
                 EntrenadoresController.addEntrenadores(PersistentData.getEntrenadorMod());
 
@@ -114,6 +118,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
                 textCategoria.setText("");
                 textIBAN.setText("");
                 textDni.setText("");
+                textEmail.setText("");
                 dateNacimiento.setValue(null);
             }
         }

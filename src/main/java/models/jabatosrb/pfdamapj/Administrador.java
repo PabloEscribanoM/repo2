@@ -168,7 +168,7 @@ public class Administrador {
         return fechaNacimiento;
     }
 
-    public Date getFechaNacimientoaDate() throws ParseException {
+    public Date getFechaNacimientoDate() throws ParseException {
         return DateFormat.fechaToDate(fechaNacimiento.get());
     }
 

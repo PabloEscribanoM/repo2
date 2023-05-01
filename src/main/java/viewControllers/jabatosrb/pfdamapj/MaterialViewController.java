@@ -35,6 +35,8 @@ public class MaterialViewController extends ViewUtilities implements Initializab
     private Button btnNext_mod;
     @FXML
     private Button btnAdd_del;
+    @FXML
+    private TextField textPrecio;
     private boolean isMod = false;
 
     @Override
@@ -47,6 +49,7 @@ public class MaterialViewController extends ViewUtilities implements Initializab
             textNombre.setText(PersistentData.getMaterialesMod().getMatNombre());
             textStock.setText(PersistentData.getMaterialesMod().getMatStock() +"");
             textDesc.setText(PersistentData.getMaterialesMod().getMatDescripcion());
+            textPrecio.setText(PersistentData.getMaterialesMod().getMatPrecio() + "");
             comboBenef.getSelectionModel().select(PersistentData.getMaterialesMod().getMatBeneficiario());
         }else{
             btnNext_mod.setVisible(false);
@@ -61,14 +64,11 @@ public class MaterialViewController extends ViewUtilities implements Initializab
             PersistentData.getMaterialesMod().setMatStock(Integer.parseInt(textStock.getText().trim()));
             PersistentData.getMaterialesMod().setMatDescripcion(textDesc.getText().trim());
             PersistentData.getMaterialesMod().setMatBeneficiario( (String) comboBenef.getSelectionModel().getSelectedItem());
+            PersistentData.getMaterialesMod().setMatPrecio(Double.parseDouble(textPrecio.getText().trim()));
 
-
-                MaterialesController.updateMateriales(PersistentData.getMaterialesMod());
+            MaterialesController.updateMateriales(PersistentData.getMaterialesMod());
 
             cerrarVentana(actionEvent);
-
-
-
         }
     }
 
@@ -88,13 +88,14 @@ public class MaterialViewController extends ViewUtilities implements Initializab
                 textErr.setText(validarCampos());
             else{
                 PersistentData.setMaterialesMod(new Materiales(0, textNombre.getText().trim(), Integer.parseInt( textStock.getText().trim()), textDesc.getText().trim(),
-                        (String)comboBenef.getSelectionModel().getSelectedItem(),1, 23.0));
+                        (String)comboBenef.getSelectionModel().getSelectedItem(),1, Double.parseDouble(textPrecio.getText().trim())));
 //cambiar precio
                 MaterialesController.addMateriales(PersistentData.getMaterialesMod());
 
                 textNombre.setText("");
                 textStock.setText("");
                 textDesc.setText("");
+                textPrecio.setText("");
 
             }
         }

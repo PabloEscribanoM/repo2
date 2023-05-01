@@ -106,11 +106,11 @@ public class AdministradorController {
             Date FechaNacimiento = null;
 
             if(rs.getDate("Administrador_fechaAlta")!=null)
-                FechaNacimiento = new Date(rs.getDate("Administrador_fechaAlta").getTime());
+                FechaAlta = new Date(rs.getDate("Administrador_fechaAlta").getTime());
             if(rs.getDate("Administrador_fechaBaja")!=null)
-                FechaAlta = new Date(rs.getDate("Administrador_fechaBaja").getTime());
+                FechaBaja = new Date(rs.getDate("Administrador_fechaBaja").getTime());
             if(rs.getDate("Administrador_fechaNacimiento")!=null)
-                FechaAlta = new Date(rs.getDate("Administrador_fechaNacimiento").getTime());
+                FechaNacimiento = new Date(rs.getDate("Administrador_fechaNacimiento").getTime());
 
             Administradores.add(new Administrador(
                     rs.getInt("Administrador_id"),
@@ -141,7 +141,7 @@ public class AdministradorController {
                 "Administrador_Nombre = ?, Administrador_Apellidos = ?, " +
                 "Administrador_Email = ?, Administrador_Area = ?, " +
                 "Administrador_DNI = ?, Administrador_fechaNacimiento = ?, Administrador_Salario = ?," +
-                "Administrador_cuentaBancaria = ? " +
+                "Administrador_cuentaBancaria = ?, Administrador_Telefono = ? " +
                 "WHERE Administrador_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
@@ -151,10 +151,11 @@ public class AdministradorController {
         ps.setString(3, administrador.getEmail());
         ps.setString(4, administrador.getArea());
         ps.setString(5, administrador.getDni());
-        ps.setDate(6, new java.sql.Date(administrador.getFechaNacimientoaDate().getTime()));
+        ps.setDate(6, new java.sql.Date(administrador.getFechaNacimientoDate().getTime()));
         ps.setDouble(7, administrador.getSalario());
         ps.setString(8, administrador.getCuentaBancaria());
-        ps.setInt(9, administrador.getId());
+        ps.setString(9, administrador.getTelefono());
+        ps.setInt(10, administrador.getId());
 
         ps.executeUpdate();
 
@@ -172,20 +173,19 @@ public class AdministradorController {
         ps.close();
     }
     public static void addAdministrador(Administrador administrador) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Administrador VAlUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL , ? , ? , 1 )";
+        String sql = "INSERT INTO Administrador VAlUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL , ?, ? , ? , 1 )";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, administrador.getNombre());
         ps.setString(2, administrador.getApellidos());
-        //telefono
-        ps.setString(3, administrador.getEmail());
-        ps.setString(4, Encrypter.encriptar(administrador.getPwd(), PersistentData.getEncryptKey()));
-        ps.setString(5, administrador.getArea());
-        ps.setString(6, administrador.getDni());
-        ps.setDate(7, new java.sql.Date(new Date().getTime()));
-        ps.setDate(8, new java.sql.Date(administrador.getFechaBajaDate().getTime()));
-        ps.setDate(9, new java.sql.Date(administrador.getFechaNacimientoaDate().getTime()));
+        ps.setString(3, administrador.getTelefono());
+        ps.setString(4, administrador.getEmail());
+        ps.setString(5, Encrypter.encriptar(administrador.getPwd(), PersistentData.getEncryptKey()));
+        ps.setString(6, administrador.getArea());
+        ps.setString(7, administrador.getDni());
+        ps.setDate(8, new java.sql.Date(new Date().getTime()));
+        ps.setDate(9, new java.sql.Date(administrador.getFechaNacimientoDate().getTime()));
         ps.setDouble(10, administrador.getSalario());
         ps.setString(11, administrador.getCuentaBancaria());
 

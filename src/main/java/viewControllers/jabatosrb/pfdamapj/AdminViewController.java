@@ -43,6 +43,8 @@ public class AdminViewController extends ViewUtilities implements Initializable 
     private TextField textArea;
     @FXML
     private DatePicker dateNacimiento;
+    @FXML
+    private TextField textTelefono;
     private boolean isMod=false;
 
     @Override
@@ -58,17 +60,20 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             textSalario.setText(PersistentData.getAdminMod().getSalario() + "");
             textArea.setText(PersistentData.getAdminMod().getArea());
             textEmail.setText(PersistentData.getAdminMod().getEmail());
+            textTelefono.setText(PersistentData.getAdminMod().getTelefono());
+            System.out.println(PersistentData.getAdminMod().getFechaNacimiento());
             try {
-                dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getAdminMod().getFechaNacimientoaDate()));
+                dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getAdminMod().getFechaNacimientoDate()));
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
+
         }else{
             btnNext_mod.setVisible(false);
         }
     }
 
-    public void actionNext_mod(ActionEvent actionEvent) {
+    public void actionNext_mod(ActionEvent actionEvent) throws SQLException, ParseException {
         if(!validarCampos().equals("OK")){
             textErr.setText(validarCampos());
         }else{
@@ -79,6 +84,11 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             PersistentData.getAdminMod().setSalario(Double.parseDouble(textSalario.getText().trim()));
             PersistentData.getAdminMod().setArea(textArea.getText().trim());
             PersistentData.getAdminMod().setEmail(textEmail.getText().trim());
+            PersistentData.getAdminMod().setTelefono(textTelefono.getText().trim());
+            PersistentData.getAdminMod().setFechaNacimiento(DateFormat.toDate(dateNacimiento.getValue()));
+
+            AdministradorController.updateAdministrador(PersistentData.getAdminMod());
+            cerrarVentana(actionEvent);
         }
     }
 
@@ -99,7 +109,7 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             else{
                 PersistentData.setAdminMod(new Administrador(0, textNombre.getText().trim(), textApellidos.getText().trim(), textEmail.getText().trim(),
                         null, textArea.getText().trim(), textDni.getText().trim(), new Date(),null, DateFormat.toDate(dateNacimiento.getValue()),
-                         Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),"hacer",1));
+                         Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),textTelefono.getText().trim(),1));
 
                 AdministradorController.addAdministrador(PersistentData.getAdminMod());
 
@@ -111,6 +121,7 @@ public class AdminViewController extends ViewUtilities implements Initializable 
                 dateNacimiento.setValue(null);
                 textIBAN.setText("");
                 textSalario.setText("");
+                textTelefono.setText("");
 
             }
         }

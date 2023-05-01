@@ -64,8 +64,8 @@ public class EntrenadoresController {
         String sql = "UPDATE Entrenadores SET " +
                 "Entrenadores_nombre = ?, Entrenadores_apellidos = ?, " +
                 "Entrenadores_telefono = ?, Entrenadores_salario = ?, " +
-                " Entrenadores_fechaNacimiento = ?, Entrenadores_categoria = ?," +
-                " Entrenadores_Dni = ? , Entrenadores_cuentaBancaria = ? " +
+                " Entrenadores_fechaNacimiento = ?, Entrenadores_categoria = ?, " +
+                " Entrenadores_Dni = ? , Entrenadores_cuentaBancaria = ? , Entrenadores_email = ? " +
                 "WHERE Entrenadores_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
@@ -78,7 +78,8 @@ public class EntrenadoresController {
         ps.setString(6, entrenadores.getCategoria());
         ps.setString(7, entrenadores.getDni());
         ps.setString(8, entrenadores.getCuentaBancaria());
-        ps.setInt(9, entrenadores.getId());
+        ps.setString(9, entrenadores.getEmail());
+        ps.setInt(10, entrenadores.getId());
 
         ps.executeUpdate();
 
@@ -96,18 +97,17 @@ public class EntrenadoresController {
         ps.close();
     }
     public static void addEntrenadores(Entrenadores entrenadores) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Entrenadores VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, 1, ?)";
+        String sql = "INSERT INTO Entrenadores VAlUES (NULL, ?, ?, ?, ?, ?, ?, NULL , ?, ?, ?, 1, ?)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, entrenadores.getNombre());
         ps.setString(2, entrenadores.getApellidos());
         ps.setString(3, entrenadores.getTelefono());
-        //email
-        ps.setDouble(4, entrenadores.getSalario());
-        ps.setDate(5, new java.sql.Date(entrenadores.getFechaNacimientoDate().getTime()));
+        ps.setString(4, entrenadores.getEmail());
+        ps.setDouble(5, entrenadores.getSalario());
         ps.setDate(6, new java.sql.Date(new Date().getTime()));
-        ps.setDate(7, new java.sql.Date(entrenadores.getFechaBajaDate().getTime()));
+        ps.setDate(7, new java.sql.Date(entrenadores.getFechaNacimientoDate().getTime()));
         ps.setString(8, entrenadores.getCategoria());
         ps.setString(9, entrenadores.getDni());
         ps.setString(10, entrenadores.getCuentaBancaria());

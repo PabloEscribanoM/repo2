@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jabatosrb.pfdamapj.EntrenadorViewController">
+<AnchorPane prefHeight="400.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jabatosrb.pfdamapj.EntrenadorViewController">
    <children>
       <GridPane alignment="CENTER" layoutX="200.0" layoutY="155.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columnConstraints>
@@ -34,7 +34,7 @@
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Apellidos" GridPane.columnIndex="1" GridPane.columnSpan="2">
+            <Label text="Apellidos" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
@@ -78,7 +78,7 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="textApellidos" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <TextField fx:id="textApellidos" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
@@ -113,6 +113,16 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </DatePicker>
+            <Label text="Email" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="textEmail" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
    </children>

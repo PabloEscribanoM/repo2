@@ -35,14 +35,15 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
     private Button btnNext_mod;
     @FXML
     private Button btnAdd_del;
-    private boolean isMod=true;
+    private boolean isMod=false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (PersistentData.getPatrocinadorMod()!=null){
+            isMod=true;
             btnNext_mod.setText("Modificar");
             btnAdd_del.setText("Borrar");
-            textNombre.setText(PersistentData.getMaterialesMod().getMatNombre());
+            textNombre.setText(PersistentData.getPatrocinadorMod().getNombre());
             textDesc.setText(PersistentData.getPatrocinadorMod().getDescripcion());
             textAporte.setText(PersistentData.getPatrocinadorMod().getAporte() + "");
             textIBAN.setText(PersistentData.getPatrocinadorMod().getCuentaBancaria());
@@ -51,7 +52,7 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
         }
     }
 
-    public void actionNext_mod(ActionEvent actionEvent) {
+    public void actionNext_mod(ActionEvent actionEvent) throws SQLException, ParseException {
         if(!validarCampos().equals("OK")){
             textErr.setText(validarCampos());
         }else{
@@ -59,6 +60,10 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
             PersistentData.getPatrocinadorMod().setDescripcion(textDesc.getText().trim());
             PersistentData.getPatrocinadorMod().setAporte(Double.parseDouble(textAporte.getText().trim()));
             PersistentData.getPatrocinadorMod().setCuentaBancaria(textIBAN.getText().trim());
+
+            PatrocinadorController.updatePatrocinador(PersistentData.getPatrocinadorMod());
+
+            cerrarVentana(actionEvent);
         }
     }
 
