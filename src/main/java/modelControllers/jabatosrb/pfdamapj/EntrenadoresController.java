@@ -94,7 +94,7 @@ public class EntrenadoresController {
         ps.close();
     }
     public static void addEntrenadores(Entrenadores entrenadores) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Administrador VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, NULL )";
+        String sql = "INSERT INTO Entrenadores VAlUES (NULL, ?, ?, ?, ?, ?, NULL , ?, ?, ?, NULL )";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 

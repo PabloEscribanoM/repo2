@@ -71,7 +71,7 @@ public class PatrocinadorController {
         ps.close();
     }
     public static void addPatrocinador(Patrocinador patrocinador) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Materiales VAlUES (NULL, ?, ?, ?, ?, NULL)";
+        String sql = "INSERT INTO Patrocinador VAlUES (NULL, ?, ?, ?, ?, NULL)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 

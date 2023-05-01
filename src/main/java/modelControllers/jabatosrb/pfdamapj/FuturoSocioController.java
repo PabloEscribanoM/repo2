@@ -91,7 +91,7 @@ public class FuturoSocioController {
         ps.close();
     }
     public static void addFuturoSocio(FuturoSocio futuroSocio) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Escuela VAlUES (NULL, ?, ?, ?, ?, ?, NULL, ? , ?, NULL )";
+        String sql = "INSERT INTO Futuro_socio VAlUES (NULL, ?, ?, ?, ?, ?, NULL, ? , ?, NULL )";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
