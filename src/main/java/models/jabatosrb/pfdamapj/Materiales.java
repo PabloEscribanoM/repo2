@@ -12,7 +12,7 @@ public class Materiales {
     private SimpleStringProperty matBeneficiario;
     private SimpleIntegerProperty matIdClub;
 
-
+    
 
     private SimpleDoubleProperty matPrecio;
 

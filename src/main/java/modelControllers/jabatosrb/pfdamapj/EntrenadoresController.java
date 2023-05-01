@@ -17,7 +17,7 @@ import java.util.Date;
 public class EntrenadoresController {
     public static ArrayList<Entrenadores> getFiltered(String filtro) throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         ArrayList<Entrenadores> entrenadoresLista = new ArrayList<Entrenadores>();
-        String sql = "SELECT * FROM Entrenadores WHERE Entrenadores_nombre LIKE CONCAT('%',?,'%') OR Entrenadores_apellidos LIKE CONCAT('%',?,'%') AND WHERE Entrenadores_fechaBaja IS NULL";
+        String sql = "SELECT * FROM Entrenadores WHERE Entrenadores_nombre LIKE CONCAT('%',?,'%') OR Entrenadores_apellidos LIKE CONCAT('%',?,'%') AND Entrenadores_fechaBaja IS NULL";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
         ps.setString(1, filtro);

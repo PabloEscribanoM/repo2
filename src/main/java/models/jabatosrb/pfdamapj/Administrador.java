@@ -23,8 +23,9 @@ public class Administrador {
     private SimpleDoubleProperty salario;
     private SimpleStringProperty cuentaBancaria;
     private SimpleIntegerProperty idClub;
+    private SimpleStringProperty telefono;
 
-    public Administrador(int id, String nombre, String apellidos, String email, String pwd, String area, String dni, Date fechaAlta, Date fechaBaja, Date fechaNacimiento, double salario, String cuentaBancaria, int idClub) {
+    public Administrador(int id, String nombre, String apellidos, String email, String pwd, String area, String dni, Date fechaAlta, Date fechaBaja, Date fechaNacimiento, double salario, String cuentaBancaria, String telefono, int idClub) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
         this.apellidos = new SimpleStringProperty(apellidos);
@@ -37,9 +38,12 @@ public class Administrador {
         this.fechaNacimiento = new SimpleStringProperty(DateFormat.fechaToString(fechaNacimiento));
         this.salario = new SimpleDoubleProperty(salario);
         this.cuentaBancaria = new SimpleStringProperty(cuentaBancaria);
+        this.telefono=new SimpleStringProperty(telefono);
         this.idClub = new SimpleIntegerProperty(idClub);
     }
-
+    public String getTelefono(String telefono){return  telefono;}
+    public SimpleStringProperty getTelefonoProperty(){return  telefono;}
+    public void setTelefono (String telefono){this.telefono.set(telefono);}
     public int getId() {
         return id.get();
     }

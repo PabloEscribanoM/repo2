@@ -47,6 +47,7 @@ foreign key (Jug_id_Club) references Club(Club_id)
 create table if not exists Materiales(
 Mat_id int primary key auto_increment,
 Mat_nombre varchar (100),
+Mat_precio double,
 Mat_stock int,
 Mat_descripcion varchar (500),
 Mat_Beneficiario varchar(2),
@@ -81,6 +82,7 @@ Entrenadores_id int primary key auto_increment,
 Entrenadores_nombre varchar(100),
 Entrenadores_apellidos varchar(100),
 Entrenadores_telefono varchar (10),
+Entrenadores_email varchar(50),
 Entrenadores_salario double,
 Entrenadores_fechaAlta date,
 Entrenadores_fechaBaja date,
@@ -97,6 +99,7 @@ create table if not exists Administrador(
 Administrador_id int primary key auto_increment,
 Administrador_Nombre varchar(100),
 Administrador_Apellidos varchar(100),
+Administrador_Telefono varchar(10),
 Administrador_Email varchar (100) unique,
 Administrador_pwd varchar (90),
 Administrador_Area varchar (100),
@@ -157,8 +160,8 @@ VALUES (null,"Jose","Gordon Alonso","Leti","X","xxx@gmail.com","UW4Pp5ZMpPJ6dOzX
 INSERT INTO Jugadores(Jug_id ,Jug_temporada ,Jug_numFicha   ,Jug_Seccion  ,Jug_aporte ,Jug_federadoPrevio  ,Jug_id_Club ,Jug_adeudo, Jug_id_Socio) 
 VALUES (null,"2022-2023",1,"masculino",123,true,1,123, 1);
 
-INSERT INTO Materiales(Mat_id ,Mat_nombre,Mat_stock ,Mat_Beneficiario,Mat_id_Club) 
-VALUES(null,"Balon",12,"x",1);
+INSERT INTO Materiales(Mat_id ,Mat_nombre,Mat_stock ,Mat_Beneficiario,Mat_id_Club, Mat_Precio) 
+VALUES(null,"Balon",12,"x",1, 10);
 INSERT INTO Escuela(Esc_id  ,Esc_nombre,Esc_Apellidos  ,
 Esc_Genero ,
 Esc_numeroFicha ,
