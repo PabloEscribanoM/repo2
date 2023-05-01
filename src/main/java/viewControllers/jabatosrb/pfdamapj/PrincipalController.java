@@ -32,6 +32,8 @@ import java.util.ResourceBundle;
 
 public class PrincipalController implements Initializable {
 
+
+
     // Socios
     @FXML
     private TextField sociosText;
@@ -59,10 +61,29 @@ public class PrincipalController implements Initializable {
     private ArrayList<Escuela> listaEscuela;
     // administradores
     @FXML
+    public TableView adminTabla;
+    @FXML
     private TextField adminText;
+    @FXML
+    public TableColumn adminNombre,adminApellidos,adminEmail,adminTelefono,adminArea,adminDni,adminSalario,adminFechaAlta,adminIBAN;
+    private ArrayList<Administrador> listaAdministrador;
     // entrenadores
     @FXML
     private TextField entrenadoresText;
+    private ArrayList<Entrenadores> listaEntrenadores;
+    @FXML
+    public TableView entrenadoresTabla;
+    @FXML
+    public TableColumn entrenadoresNombre,entrenadoresApellidos,entrenadoresEmail,entrenadoresTelefono,entrenadoresCategoria,entrenadoresDNI,entrenadoresSalario,entrenadoresFechaAlta,entrenadoresIBAN;
+    //material
+    @FXML
+    private TextField materialText;
+    private ArrayList<Materiales> listaMaterial;
+    @FXML
+    public TableView materialTabla;
+    @FXML
+    public TableColumn materialNombre,materialStock,materialBeneficiario;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -99,10 +120,38 @@ public class PrincipalController implements Initializable {
         escuelaFechaAlta.setCellValueFactory(new PropertyValueFactory<>("fechaAlta"));
         escuelaIBAN.setCellValueFactory(new PropertyValueFactory<>("cuentaBancaria"));
         actualizarEscuela();
-        // tabla
-
+        // tabla administracion
+        adminNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        adminApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        adminEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        adminTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        adminArea.setCellValueFactory(new PropertyValueFactory<>("area"));
+        adminDni.setCellValueFactory(new PropertyValueFactory<>("dni"));
+        adminSalario.setCellValueFactory(new PropertyValueFactory<>("salario"));
+        adminFechaAlta.setCellValueFactory(new PropertyValueFactory<>("fechaAlta"));
+        adminIBAN.setCellValueFactory(new PropertyValueFactory<>("iban"));
+        actualizarAdministracion();
+        // tabla entrenadores
+        entrenadoresNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        entrenadoresApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        entrenadoresEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        entrenadoresTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        entrenadoresCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        entrenadoresDNI.setCellValueFactory(new PropertyValueFactory<>("dni"));
+        entrenadoresSalario.setCellValueFactory(new PropertyValueFactory<>("salario"));
+        entrenadoresFechaAlta.setCellValueFactory(new PropertyValueFactory<>("fechaAlta"));
+        entrenadoresIBAN.setCellValueFactory(new PropertyValueFactory<>("iban"));
+        actualizarEntrenadores();
+        // tabla materiales
+        materialNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        materialStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        materialBeneficiario.setCellValueFactory(new PropertyValueFactory<>("beneficiario"));
+        actualizarMateriales();
 
     }
+
+
+
     // socios
     public void SociosBuscar(ActionEvent actionEvent) {
         actualizarSocios();
@@ -156,24 +205,45 @@ public class PrincipalController implements Initializable {
         actualizarEscuela();
     }
 
-    public void adminBuscar(ActionEvent actionEvent) {
-    }
 
-    public void adminAniadir(ActionEvent actionEvent) {
-    }
+    public void adminBuscar(ActionEvent actionEvent) {actualizarAdministracion();}
 
-    public void entrenadoresBuscar(ActionEvent actionEvent) {
+    public void adminAniadir(ActionEvent actionEvent) throws IOException {
+        ventanaModal(actionEvent, PrincipalController.class.getResource("fxml/admin_view.fxml"), "Nuevo administrador");
+        PersistentData.setAdminMod(null);
+        actualizarAdministracion();
     }
-
-    public void entrenadoresAniadir(ActionEvent actionEvent) {
+    public void adminModificar(MouseEvent mouseEvent) throws IOException {
+        PersistentData.setAdminMod((Administrador) adminTabla.getSelectionModel().getSelectedItem());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/admin_view.fxml"), "Modificar id: " + PersistentData.getAdminMod().getId());
+        PersistentData.setAdminMod(null);
+        actualizarAdministracion();
     }
+    public void entrenadoresBuscar(ActionEvent actionEvent) {actualizarEntrenadores();}
 
-    public void materialBuscar(ActionEvent actionEvent) {
+    public void entrenadoresAniadir(ActionEvent actionEvent) throws IOException {
+        ventanaModal(actionEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Nuevo entrenador");
+        PersistentData.setEntrenadoresMod(null);
+        actualizarEntrenadores();
     }
-
-    public void materialAniadir(ActionEvent actionEvent) {
+    public void entrenadoresModificar(MouseEvent mouseEvent) throws IOException {
+        PersistentData.setEntrenadorMod((Entrenadores) entrenadoresTabla.getSelectionModel().getSelectedItem());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Escuela id: " + PersistentData.getEntrenadorMod().getId());
+        PersistentData.setEntrenadoresMod(null);
+        actualizarEntrenadores();
     }
-
+    public void materialBuscar(ActionEvent actionEvent) {actualizarMateriales();}
+    public void materialAniadir(ActionEvent actionEvent) throws IOException {
+        ventanaModal(actionEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Nuevo material");
+        PersistentData.setMaterialesMod(null);
+        actualizarMateriales();
+    }
+    public void materialModificar(MouseEvent mouseEvent) throws IOException {
+        PersistentData.setMaterialesMod((Materiales) materialTabla.getSelectionModel().getSelectedItem());
+        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Escuela id: " + PersistentData.getMaterialesMod().getMatId());
+        PersistentData.setMaterialesMod(null);
+        actualizarMateriales();
+    }
     public void cerrarSesion(ActionEvent actionEvent) throws IOException {
         PersistentData.setUser(null);
         Parent root = FXMLLoader.load(PrincipalController.class.getResource("fxml/logIn_view.fxml"));
@@ -219,5 +289,30 @@ public class PrincipalController implements Initializable {
         }
         escuelaTabla.setItems(FXCollections.observableArrayList(listaEscuela));
     }
+    private void actualizarAdministracion() {
+        try{
+            listaAdministrador = AdministradorController.getFiltered(adminText.getText().trim());
+        } catch (SQLException | UnsupportedEncodingException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+        adminTabla.setItems(FXCollections.observableArrayList(listaAdministrador));
+    }
 
+    private void actualizarMateriales() {
+        try{
+            listaMaterial = MaterialesController.getFiltered(materialText.getText().trim());
+        } catch (SQLException | UnsupportedEncodingException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+        materialTabla.setItems(FXCollections.observableArrayList(listaMaterial));
+    }
+
+    private void actualizarEntrenadores() {
+        try{
+            listaEntrenadores = EntrenadoresController.getFiltered(entrenadoresText.getText().trim());
+        } catch (SQLException | UnsupportedEncodingException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+        entrenadoresTabla.setItems(FXCollections.observableArrayList(listaEntrenadores));
+    }
 }

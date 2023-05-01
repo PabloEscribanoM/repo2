@@ -210,17 +210,17 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                              <TableView fx:id="adminTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Nombre" />
-                                    <TableColumn prefWidth="75.0" text="Apellidos" />
-                                    <TableColumn prefWidth="75.0" text="Email" />
-                                    <TableColumn prefWidth="75.0" text="Teléfono" />
-                                    <TableColumn prefWidth="75.0" text="Area" />
-                                    <TableColumn prefWidth="75.0" text="DNI" />
-                                    <TableColumn prefWidth="75.0" text="Salario" />
-                                    <TableColumn prefWidth="75.0" text="Fecha alta" />
-                                    <TableColumn prefWidth="75.0" text="IBAN" />
+                                    <TableColumn fx:id="adminNombre" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn fx:id="adminApellidos" prefWidth="75.0" text="Apellidos" />
+                                    <TableColumn fx:id="adminEmail" prefWidth="75.0" text="Email" />
+                                    <TableColumn fx:id="adminTelefono" prefWidth="75.0" text="Teléfono" />
+                                    <TableColumn fx:id="adminArea" prefWidth="75.0" text="Area" />
+                                    <TableColumn fx:id="adminDni" prefWidth="75.0" text="DNI" />
+                                    <TableColumn fx:id="adminSalario" prefWidth="75.0" text="Salario" />
+                                    <TableColumn fx:id="adminFechaAlta" prefWidth="75.0" text="Fecha alta" />
+                                    <TableColumn fx:id="adminIBAN" prefWidth="75.0" text="IBAN" />
                                  </columns>
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -265,7 +265,7 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                              <TableView fx:id="entrenadoresTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -273,15 +273,15 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Nombre" />
-                                    <TableColumn prefWidth="75.0" text="Apellidos" />
-                                    <TableColumn prefWidth="75.0" text="Email" />
-                                    <TableColumn prefWidth="75.0" text="Teléfono" />
-                                    <TableColumn prefWidth="75.0" text="Sección/Categoría" />
-                                    <TableColumn prefWidth="75.0" text="DNI" />
-                                    <TableColumn prefWidth="75.0" text="Salario" />
-                                    <TableColumn prefWidth="75.0" text="Fecha alta" />
-                                    <TableColumn prefWidth="75.0" text="IBAN" />
+                                    <TableColumn fx:id="entrenadoresNombre" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn fx:id="entrenadoresApellidos" prefWidth="75.0" text="Apellidos" />
+                                    <TableColumn fx:id="entrenadoresEmail" prefWidth="75.0" text="Email" />
+                                    <TableColumn fx:id="entrenadoresTelefono" prefWidth="75.0" text="Teléfono" />
+                                    <TableColumn fx:id="entrenadoresCategoria" prefWidth="75.0" text="Sección/Categoría" />
+                                    <TableColumn fx:id="entrenadoresDNI" prefWidth="75.0" text="DNI" />
+                                    <TableColumn fx:id="entrenadoresSalario" prefWidth="75.0" text="Salario" />
+                                    <TableColumn fx:id="entrenadoresFechaAlta" prefWidth="75.0" text="Fecha alta" />
+                                    <TableColumn fx:id="entrenadoresIBAN" prefWidth="75.0" text="IBAN" />
                                  </columns>
                               </TableView>
                            </children>
@@ -322,9 +322,9 @@
                               </TextField>
                               <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Nombre" />
-                                    <TableColumn prefWidth="75.0" text="Stock" />
-                                    <TableColumn prefWidth="75.0" text="Beneficiario" />
+                                    <TableColumn fx:id="materialNombre" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn fx:id="materialStock" prefWidth="75.0" text="Stock" />
+                                    <TableColumn fx:id="materialBeneficiario" prefWidth="75.0" text="Beneficiario" />
                                  </columns>
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
