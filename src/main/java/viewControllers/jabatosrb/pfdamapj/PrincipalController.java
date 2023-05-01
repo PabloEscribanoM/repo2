@@ -80,7 +80,7 @@ public class PrincipalController implements Initializable {
     @FXML
     private TableView materialTabla;
     @FXML
-    private TableColumn materialNombre,materialStock,materialBeneficiario;
+    private TableColumn materialNombre,materialStock,materialBeneficiario, materialPrecio;
     //patrocinador
     @FXML
     private TableView patroTabla;
@@ -149,6 +149,7 @@ public class PrincipalController implements Initializable {
         actualizarEntrenadores();
         // tabla materiales
         materialNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        materialPrecio.setCellFactory(new PropertyValueFactory<>("precio"));
         materialStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         materialBeneficiario.setCellValueFactory(new PropertyValueFactory<>("beneficiario"));
         actualizarMateriales();
