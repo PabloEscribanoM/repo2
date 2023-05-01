@@ -12,14 +12,18 @@ public class Materiales {
     private SimpleStringProperty matBeneficiario;
     private SimpleIntegerProperty matIdClub;
 
+    
 
-    public Materiales(Integer matId, String matNombre, Integer matStock, String matDescripcion, String matBeneficiario, Integer matIdClub) {
+    private SimpleDoubleProperty matPrecio;
+
+    public Materiales(Integer matId, String matNombre, Integer matStock, String matDescripcion, String matBeneficiario, Integer matIdClub, Double matPrecio) {
         this.matId = new SimpleIntegerProperty(matId);
         this.matNombre = new SimpleStringProperty(matNombre);
         this.matStock = new SimpleIntegerProperty(matStock);
         this.matDescripcion = new SimpleStringProperty(matDescripcion);
         this.matBeneficiario = new SimpleStringProperty(matBeneficiario);
         this.matIdClub = new SimpleIntegerProperty(matIdClub);
+        this.matPrecio = new SimpleDoubleProperty(matPrecio);
     }
 
     public int getMatId() {return matId.get();}
@@ -57,4 +61,10 @@ public class Materiales {
     public SimpleIntegerProperty matIdClubProperty() {return matIdClub;}
 
     public void setMatIdClub(int matIdClub) {this.matIdClub.set(matIdClub);}
+
+    public double getMatPrecio() {return matPrecio.get();}
+
+    public SimpleDoubleProperty matPrecioProperty() {return matPrecio;}
+
+    public void setMatPrecio(double matPrecio) {this.matPrecio.set(matPrecio);}
 }
