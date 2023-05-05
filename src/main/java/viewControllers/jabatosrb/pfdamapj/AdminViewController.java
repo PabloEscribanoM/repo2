@@ -1,6 +1,7 @@
 package jabatosrb.pfdamapj;
 
 import jabatosrb.pfdampj.DateFormat;
+import jabatosrb.pfdampj.PassGenerator;
 import jabatosrb.pfdampj.PersistentData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -108,7 +109,7 @@ public class AdminViewController extends ViewUtilities implements Initializable 
                 textErr.setText(validarCampos());
             else{
                 PersistentData.setAdminMod(new Administrador(0, textNombre.getText().trim(), textApellidos.getText().trim(), textEmail.getText().trim(),
-                        null, textArea.getText().trim(), textDni.getText().trim(), new Date(),null, DateFormat.toDate(dateNacimiento.getValue()),
+                        PassGenerator.generatePass(8,PassGenerator.NUMBERS_LOWER), textArea.getText().trim(), textDni.getText().trim(), new Date(),null, DateFormat.toDate(dateNacimiento.getValue()),
                          Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),textTelefono.getText().trim(),1));
 
                 AdministradorController.addAdministrador(PersistentData.getAdminMod());
