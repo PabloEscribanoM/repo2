@@ -18,6 +18,8 @@ public class Main extends Application {
     public void init() throws Exception {
         //conectar a la base de datos
         Conexion.openConnection();
+        //Recoger el club
+        PersistentData.setClub(ClubController.getClub());
         //comprovar el encriptado de contraseñas
         String actualMonth = DateFormat.getMonth(new Date());
 
@@ -60,6 +62,8 @@ public class Main extends Application {
 
     @Override
     public void stop() throws Exception {
+        //guardar datos del club
+        ClubController.updateClub(PersistentData.getClub());
         //cerrar la base de datos
         Conexion.closeConnection();
     }

@@ -13,17 +13,16 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class ClubController {
-    public static ArrayList<Club> getFiltered(String filtro) throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        ArrayList<Club> clubLista = new ArrayList<Club>();
-        String sql = "SELECT * FROM Club WHERE Club_nombre LIKE CONCAT('%',?,'%')";
+    public static Club getClub() throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        Club club = null;
+        String sql = "SELECT * FROM Club";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
-        ps.setString(1, filtro);
 
         ResultSet rs = ps.executeQuery();
 
-        while(rs.next()){
-            clubLista.add(new Club(
+        if(rs.next()){
+            club = new Club(
                     rs.getInt("Club_id"),
                     rs.getString("Club_nombre"),
                     rs.getString("Club_telefono"),
@@ -32,61 +31,30 @@ public class ClubController {
                     rs.getDouble("Club_ingresos"),
                     rs.getDouble("Club_resultadoTotal"),
                     rs.getDouble("Club_ingresos_previstos")
-            ));
+            );
         }
 
         rs.close();
         ps.close();
 
-        return clubLista;
+        return club;
 
     }
 
     public static void updateClub(Club club) throws SQLException, ParseException {
         String sql = "UPDATE Club SET " +
-                "Club_nombre = ?, Club_telefono = ?, " +
-                "Club_identidadFiscal = ?, Club_gastos = ?,  Club_ingresos = ? , Club_resultadoTotal = ?, Club_ingresos_previstos=? " +
+                "Club_nombre = ?, " +
+                "Club_gastos = ?,  Club_ingresos = ? , Club_resultadoTotal = ?, Club_ingresos_previstos=? " +
                 "WHERE Club_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, club.getClubNombre());
-        ps.setString(2, club.getClubTelefono());
-        ps.setString(3, club.getClubIdFiscal());
-        ps.setDouble(4, club.getClubGastos());
-        ps.setDouble(5, club.getClubIngresos());
-        ps.setDouble(6, club.getClubResTotal());
-        ps.setDouble(7, club.getClubIngresosPrevistos());
-        ps.setInt(8, club.getClubId());
-
-        ps.executeUpdate();
-
-        ps.close();
-    }
-    public static void deleteClub(Club club) throws SQLException, ParseException {
-        String sql = "DELETE FROM Club WHERE Club_id = ?";
-
-        PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
-
-        ps.setInt(1, club.getClubId());
-
-        ps.executeUpdate();
-
-        ps.close();
-    }
-    public static void addClub(Club club) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Club VAlUES (NULL, ?, ?, ?, ?, ?, ?,?)";
-
-        PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
-
-        ps.setString(1, club.getClubNombre());
-        ps.setString(2, club.getClubTelefono());
-        ps.setString(3, club.getClubIdFiscal());
-        ps.setDouble(4, club.getClubGastos());
-        ps.setDouble(5, club.getClubIngresos());
-        ps.setDouble(6, club.getClubResTotal());
-        ps.setDouble(7, club.getClubIngresosPrevistos());
-
+        ps.setDouble(2, club.getClubGastos());
+        ps.setDouble(3, club.getClubIngresos());
+        ps.setDouble(4, club.getClubResTotal());
+        ps.setDouble(5, club.getClubIngresosPrevistos());
+        ps.setInt(6, club.getClubId());
 
         ps.executeUpdate();
 
@@ -97,22 +65,31 @@ public class ClubController {
         String sql="SELECT SUM(Mat_precio) FROM Materiales";
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        double gastos;
-        gastos = rs.getRow();
-        String sql1="SELECT SUM(Entrenadores_salario) FROM Entrenadores";
-        PreparedStatement ps1 = Conexion.getConnection().prepareStatement(sql1);
-        ResultSet rs1 = ps.executeQuery();
-        double gastos1;
-        gastos1 = rs.getRow();
+        double gastos = 0;
+        if (rs.next())
+            gastos = rs.getDouble(1);
+        rs.close();
+        ps.close();
+
+        sql="SELECT SUM(Entrenadores_salario) FROM Entrenadores";
+        ps = Conexion.getConnection().prepareStatement(sql);
+        rs = ps.executeQuery();
+        double gastos1 = 0;
+        if (rs.next())
+            gastos1 = rs.getDouble(1);
+        rs.close();
+        ps.close();
+
         String sql2="SELECT SUM(Administrador_Salario) FROM Administrador";
-        PreparedStatement ps2= Conexion.getConnection().prepareStatement(sql2);
-        ResultSet rs2 = ps.executeQuery();
-        double gastos2;
-        gastos2 = rs.getRow();
+        ps= Conexion.getConnection().prepareStatement(sql2);
+        rs = ps.executeQuery();
+        double gastos2 = 0;
+        if (rs.next())
+            gastos2 = rs.getDouble(1);
+        rs.close();
+        ps.close();
 
-        double gastosTotales=gastos1+gastos+gastos2;
-
-    return gastosTotales;
+        return gastos1+gastos+gastos2;
 
     }
 
@@ -120,38 +97,55 @@ public class ClubController {
         String sql="SELECT SUM(Esc_aporte) FROM Escuela";
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        double aporteEsc;
-        aporteEsc = rs.getRow();
-        String sql1="SELECT SUM(Jug_aporte) FROM Jugadores";
-        PreparedStatement ps1 = Conexion.getConnection().prepareStatement(sql1);
-        ResultSet rs1 = ps.executeQuery();
-        double aporteJug;
-        aporteJug = rs.getRow();
-        String sql2="SELECT SUM(Patrocinador_aporte) FROM Patrocinador";
-        PreparedStatement ps2 = Conexion.getConnection().prepareStatement(sql2);
-        ResultSet rs2 = ps.executeQuery();
-        double aportePatrocinador;
-        aportePatrocinador = rs.getRow();
-        double aporteReal= aporteJug+aporteEsc+aportePatrocinador;
-        return aporteReal;
+        double aporteEsc = 0;
+        if (rs.next())
+            aporteEsc = rs.getDouble(1);
+        rs.close();
+        ps.close();
+
+        sql="SELECT SUM(Jug_aporte) FROM Jugadores";
+        ps = Conexion.getConnection().prepareStatement(sql);
+        rs = ps.executeQuery();
+        double aporteJug = 0;
+        if (rs.next())
+            aporteJug = rs.getDouble(1);
+        rs.close();
+        ps.close();
+
+        sql="SELECT SUM(Patrocinador_aporte) FROM Patrocinador";
+        ps = Conexion.getConnection().prepareStatement(sql);
+        rs = ps.executeQuery();
+        double aportePatrocinador = 0;
+        if (rs.next())
+            aportePatrocinador = rs.getDouble(1);
+        rs.close();
+        ps.close();
+
+        return aporteJug+aporteEsc+aportePatrocinador;
 
     }
 
     public static double calcucularAdeudo() throws SQLException {
 
-
         String sql="SELECT SUM(Esc_adeudo) FROM Escuela";
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        double adeudoEsc= rs.getRow();;
+        double adeudoEsc= 0;
+        if (rs.next())
+            adeudoEsc = rs.getDouble(1);
+        rs.close();
+        ps.close();
+
         String sql1="SELECT SUM(Jug_adeudo) FROM Jugadores";
-        PreparedStatement ps1 = Conexion.getConnection().prepareStatement(sql1);
-        ResultSet rs1 = ps.executeQuery();
-        double adeudoJug= rs.getRow();
+        ps = Conexion.getConnection().prepareStatement(sql1);
+        rs = ps.executeQuery();
+        double adeudoJug= 0;
+        if (rs.next())
+            adeudoJug = rs.getDouble(1);
+        rs.close();
+        ps.close();
 
-         double adeudo= adeudoJug+adeudoEsc;
-
-        return  adeudo;
+        return adeudoJug+adeudoEsc;
 
     }
 
@@ -166,6 +160,10 @@ public class ClubController {
         double dineroReal= aporte-gastos;
 
         return dineroReal;
+    }
+
+    public static double ingresosPrevistos(double aporte, double adeudo){
+        return aporte + adeudo;
     }
 
 }

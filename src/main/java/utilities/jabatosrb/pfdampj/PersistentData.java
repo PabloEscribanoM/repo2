@@ -15,6 +15,7 @@ public class PersistentData {
     private static Patrocinador patrocinadorMod;
     private static Entrenadores entrenadorMod;
     private static FuturoSocio futuroSocioMod;
+    private static Club club;
 
     public static SocioJugador getSocioJugadorMod() {
         return socioJugadorMod;
@@ -94,5 +95,13 @@ public class PersistentData {
 
     public static void setFuturoSocioMod(FuturoSocio futuroSocioMod) {
         PersistentData.futuroSocioMod = futuroSocioMod;
+    }
+
+    public static Club getClub() {
+        return club;
+    }
+
+    public static void setClub(Club club) {
+        PersistentData.club = club;
     }
 }

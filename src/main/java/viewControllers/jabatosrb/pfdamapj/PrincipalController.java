@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -89,6 +90,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
     @FXML
     private TextField patroText;
     private ArrayList<Patrocinador> patrocinadores;
+    //club
+    @FXML
+    private Label lblNombre;
+    @FXML
+    private TextField textIngresos, textGastos, textTotal, textPrev, textSit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -158,7 +164,14 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         patroAporte.setCellValueFactory(new PropertyValueFactory<>("aporte"));
         patroIBAN.setCellValueFactory(new PropertyValueFactory<>("cuentaBancaria"));
         actualizarPatrocinadores();
+        //club
 
+        lblNombre.setText(PersistentData.getClub().getClubNombre());
+        textIngresos.setText(PersistentData.getClub().getClubIngresos() + "");
+        textGastos.setText(PersistentData.getClub().getClubGastos() + "");
+        textTotal.setText(PersistentData.getClub().getClubResTotal() + "");
+        textPrev.setText("" + ClubController.dineroTotal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubIngresosPrevistos(), PersistentData.getClub().getClubGastos()));
+        textSit.setText("" + ClubController.dineroReal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubGastos()));
     }
 
 
@@ -342,5 +355,21 @@ public class PrincipalController extends ViewUtilities implements Initializable 
             throw new RuntimeException(e);
         }
         patroTabla.setItems(FXCollections.observableArrayList(patrocinadores));
+    }
+
+
+    public void actualizaDatos(Event event) throws SQLException {
+        PersistentData.getClub().setClubIngresos(ClubController.calcularIngresos());
+        PersistentData.getClub().setClubGastos(ClubController.calcularGastos());
+        PersistentData.getClub().setClubIngresosPrevistos(ClubController.calcucularAdeudo());
+        PersistentData.getClub().setClubResTotal(ClubController.ingresosPrevistos(PersistentData.getClub().getClubIngresos(),
+                PersistentData.getClub().getClubIngresosPrevistos()
+        ));
+
+        textIngresos.setText(PersistentData.getClub().getClubIngresos() + "");
+        textGastos.setText(PersistentData.getClub().getClubGastos() + "");
+        textTotal.setText(PersistentData.getClub().getClubResTotal() + "");
+        textPrev.setText("" + ClubController.dineroTotal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubIngresosPrevistos(), PersistentData.getClub().getClubGastos()));
+        textSit.setText("" + ClubController.dineroReal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubGastos()));
     }
 }

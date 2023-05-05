@@ -72,6 +72,7 @@ public class SocioViewController extends ViewUtilities implements Initializable 
                 cerrarVentana(actionEvent);
             }
         }else{
+            System.out.println("hola");
             if (PersistentData.getFuturoSocioMod() != null){
                 FuturoSocioController.deleteFuturoSocio(PersistentData.getFuturoSocioMod());
                 FuturoSocioController.addFuturoSocio(PersistentData.getFuturoSocioMod());

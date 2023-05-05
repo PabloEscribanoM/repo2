@@ -95,7 +95,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
             alert.setTitle("Confirmación de borrado");
-            alert.setContentText("¿Estás seguro de querer borrar a " + PersistentData.getEscuelaMod().getNombre() + "?");
+            alert.setContentText("¿Estás seguro de querer borrar a " + PersistentData.getEntrenadorMod().getNombre() + "?");
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK){
                 EntrenadoresController.deleteEntrenadores(PersistentData.getEntrenadorMod());
