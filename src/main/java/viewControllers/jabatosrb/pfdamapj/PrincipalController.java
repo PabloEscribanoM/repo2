@@ -30,7 +30,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class PrincipalController implements Initializable {
+public class PrincipalController extends ViewUtilities implements Initializable {
 
     // Socios
     @FXML
@@ -280,16 +280,6 @@ public class PrincipalController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    private void ventanaModal(Event event, URL url, String title) throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle(title);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
-        stage.showAndWait();
     }
 
     private void actualizarSocios() {

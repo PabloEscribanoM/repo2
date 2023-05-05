@@ -15,72 +15,59 @@ import java.util.Date;
 
 public class FuturoSocioController {
 
-    public static ArrayList<FuturoSocio> getFiltered(String filtro) throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        ArrayList<FuturoSocio> listaFuturosSocios = new ArrayList<FuturoSocio>();
-        String sql = "SELECT * FROM Futuro_socio WHERE futuro_socio_nombre LIKE CONCAT('%',?,'%') OR futuro_socio_apellidos LIKE CONCAT('%',?,'%' AND WHERE Futuro_socio_fechaBaja IS NULL) ";
+    public static FuturoSocio getNext() throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FuturoSocio futuroSocio = null;
+
+        String sql = "SELECT * FROM Futuro_socio LIMIT 1";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
-        ps.setString(1, filtro);
-        ps.setString(2, filtro);
 
         ResultSet rs = ps.executeQuery();
 
-        while(rs.next()){
-            Date FechaAlta = null;
-            Date FechaBaja = null;
-            Date FechaNacimiento = null;
+        if(rs.next()){
+            Date fechaNacimiento = null;
 
-            if(rs.getDate("Futuro_socio_fechaAlta")!=null)
-                FechaNacimiento = new Date(rs.getDate("Futuro_socio_fechaAlta").getTime());
-            if(rs.getDate("Futuro_socio_fechaBaja")!=null)
-                FechaAlta = new Date(rs.getDate("Futuro_socio_fechaBaja").getTime());
             if(rs.getDate("Futuro_socio_fechaNacimiento")!=null)
-                FechaNacimiento = new Date(rs.getDate("Futuro_socio_fechaNacimiento").getTime());
+                fechaNacimiento = new Date(rs.getDate("Futuro_socio_fechaNacimiento").getTime());
 
-            listaFuturosSocios.add(new FuturoSocio(
+            futuroSocio = new FuturoSocio(
                     rs.getInt("futuro_socio_id"),
                     rs.getString("futuro_socio_nombre"),
                     rs.getString("futuro_socio_apellidos"),
                     rs.getString("futuro_socio_telefono"),
-                    rs.getString("Futuro_socio_descripcion"),
-                    FechaAlta,
-                    FechaBaja,
-                    FechaNacimiento,
+                    fechaNacimiento,
                     rs.getString("Futuro_socio_cuentaBancaria"),
                     rs.getInt("Futuro_socio_id_club")
 
-            ));
+            );
         }
 
         rs.close();
         ps.close();
 
-        return listaFuturosSocios;
+        return futuroSocio;
 
     }
     public static void deleteFuturoSocio(FuturoSocio futuroSocio) throws SQLException {
-        String sql = "UPDATE Futuro_socio SET Futuro_socio_fechaBaja = ? WHERE futuro_socio_id = ?";
+        String sql = "DELETE FROM Futuro_socio WHERE futuro_socio_id = ?";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
-        ps.setDate(1, new java.sql.Date(new Date().getTime()));
-        ps.setInt(2, futuroSocio.getId());
+        ps.setInt(1, futuroSocio.getId());
 
         ps.executeUpdate();
 
         ps.close();
     }
     public static void addFuturoSocio(FuturoSocio futuroSocio) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Futuro_socio VAlUES (NULL, ?, ?, ?, ?, ?, NULL, ? , ?, NULL )";
+        String sql = "INSERT INTO Futuro_socio VAlUES (NULL, ?, ?, ?, ?, ?, 1)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
         ps.setString(1, futuroSocio.getNombre());
         ps.setString(2, futuroSocio.getApellidos());
         ps.setString(3, futuroSocio.getTelefono());
-        ps.setString(4, futuroSocio.getDescripcion());
-        ps.setDate(5, new java.sql.Date(new Date().getTime()));
-        ps.setDate(6, new java.sql.Date(futuroSocio.getFechaNacimientoaDate().getTime()));
-        ps.setString(7, futuroSocio.getCuentaBancaria());
+        ps.setDate(4, new java.sql.Date(futuroSocio.getFechaNacimientoaDate().getTime()));
+        ps.setString(5, futuroSocio.getCuentaBancaria());
 
         ps.executeUpdate();
 

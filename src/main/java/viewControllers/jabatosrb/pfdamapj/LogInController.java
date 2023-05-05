@@ -21,7 +21,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-public class LogInController {
+public class LogInController extends ViewUtilities{
     @FXML
     private PasswordField txtPwd;
     @FXML
@@ -42,6 +42,8 @@ public class LogInController {
         }
     }
 
-    public void registerOnAction(ActionEvent actionEvent) {
+    public void registerOnAction(ActionEvent actionEvent) throws IOException {
+        ventanaModal(actionEvent, LogInController.class.getResource("fxml/futuroSocio_view.fxml"), "Registro:");
+        PersistentData.setFuturoSocioMod(null);
     }
 }
