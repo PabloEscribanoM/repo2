@@ -14,6 +14,7 @@ public class PersistentData {
     private static Materiales materialesMod;
     private static Patrocinador patrocinadorMod;
     private static Entrenadores entrenadorMod;
+    private static FuturoSocio futuroSocioMod;
 
     public static SocioJugador getSocioJugadorMod() {
         return socioJugadorMod;
@@ -85,5 +86,13 @@ public class PersistentData {
 
     public static void setEntrenadorMod(Entrenadores entrenadorMod) {
         PersistentData.entrenadorMod = entrenadorMod;
+    }
+
+    public static FuturoSocio getFuturoSocioMod() {
+        return futuroSocioMod;
+    }
+
+    public static void setFuturoSocioMod(FuturoSocio futuroSocioMod) {
+        PersistentData.futuroSocioMod = futuroSocioMod;
     }
 }

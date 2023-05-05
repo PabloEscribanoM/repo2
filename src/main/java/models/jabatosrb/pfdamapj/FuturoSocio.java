@@ -19,7 +19,7 @@ public class FuturoSocio {
     private SimpleStringProperty cuentaBancaria;
     private SimpleIntegerProperty idClub;
 
-    public FuturoSocio(int id, String nombre, String apellidos, String telefono, String descripcion, Date fechaAlta, Date fechaBaja, Date fechaNacimiento, String cuentaBancaria, int idClub) {
+    public FuturoSocio(int id, String nombre, String apellidos, String telefono, Date fechaNacimiento, String cuentaBancaria, int idClub) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
         this.apellidos = new SimpleStringProperty(apellidos);
