@@ -58,27 +58,6 @@ public class FuturoSocioController {
         return listaFuturosSocios;
 
     }
-    public static void updateFuturoSocio(FuturoSocio futuroSocio) throws SQLException, ParseException {
-        String sql = "UPDATE Futuro_socio SET " +
-                "futuro_socio_nombre = ?, futuro_socio_apellidos = ?, " +
-                "futuro_socio_telefono = ?, Futuro_socio_descripcion = ?,  " +
-                "Futuro_socio_fechaNacimiento = ?, Futuro_socio_cuentaBancaria = ? " +
-                "WHERE futuro_socio_id = ?";
-
-        PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
-
-        ps.setString(1, futuroSocio.getNombre());
-        ps.setString(2, futuroSocio.getApellidos());
-        ps.setString(3, futuroSocio.getTelefono());
-        ps.setString(4, futuroSocio.getDescripcion());
-        ps.setDate(5, new java.sql.Date(futuroSocio.getFechaNacimientoaDate().getTime()));
-        ps.setString(6, futuroSocio.getCuentaBancaria());
-        ps.setInt(7, futuroSocio.getId());
-
-        ps.executeUpdate();
-
-        ps.close();
-    }
     public static void deleteFuturoSocio(FuturoSocio futuroSocio) throws SQLException {
         String sql = "UPDATE Futuro_socio SET Futuro_socio_fechaBaja = ? WHERE futuro_socio_id = ?";
 
