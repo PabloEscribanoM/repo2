@@ -8,7 +8,8 @@ Club_telefono varchar (10),
 Club_identidadFiscal varchar (11),
 Club_gastos double,
 Club_ingresos double,
-Club_resultadoTotal double
+Club_resultadoTotal double,
+Club_ingresos_previstos double
 
 );
 
@@ -118,9 +119,6 @@ futuro_socio_id int primary key auto_increment,
 futuro_socio_nombre varchar(100),
 futuro_socio_apellidos varchar(100),
 futuro_socio_telefono varchar (10),
-Futuro_socio_descripcion varchar (200),
-Futuro_socio_fechaAlta date,
-Futuro_socio_fechaBaja date,
 Futuro_socio_fechaNacimiento date,
 Futuro_socio_cuentaBancaria varchar (12),
 Futuro_socio_id_club int,
@@ -149,7 +147,7 @@ Patrocinador_Club_id int,
 foreign key (Patrocinador_Club_id) references Club(Club_id)
 );
 
-INSERT INTO Club VALUES (null, "Jabatos RB", "999999999", "xxxxxxxxx", 0.0, 0.0, 0.0);
+INSERT INTO Club VALUES (null, "Jabatos RB", "999999999", "xxxxxxxxx", 0.0, 0.0, 0.0,0.0);
 
 INSERT INTO Administrador (Administrador_id, Administrador_Nombre, Administrador_Email, Administrador_pwd, Administrador_Club_id) 
 	VALUES (null, "MASTER", "master@master.com", "UW4Pp5ZMpPJ6dOzXTfEeZA==", 1); 
