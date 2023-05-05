@@ -122,6 +122,7 @@ futuro_socio_telefono varchar (10),
 Futuro_socio_fechaNacimiento date,
 Futuro_socio_cuentaBancaria varchar (12),
 Futuro_socio_id_club int,
+Futuro_socio_email varchar(100),
 
 foreign key (Futuro_socio_id_club) references Club(Club_id)
 );
