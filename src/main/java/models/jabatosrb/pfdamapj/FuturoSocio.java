@@ -14,17 +14,17 @@ public class FuturoSocio {
     private SimpleStringProperty nombre;
     private SimpleStringProperty apellidos;
     private SimpleStringProperty telefono;
-
+    private SimpleStringProperty email;
     private SimpleStringProperty fechaNacimiento;
     private SimpleStringProperty cuentaBancaria;
     private SimpleIntegerProperty idClub;
 
-    public FuturoSocio(int id, String nombre, String apellidos, String telefono, Date fechaNacimiento, String cuentaBancaria, int idClub) {
+    public FuturoSocio(int id, String nombre, String apellidos, String telefono, String email, Date fechaNacimiento, String cuentaBancaria, int idClub) {
         this.id = new SimpleIntegerProperty(id);
         this.nombre = new SimpleStringProperty(nombre);
         this.apellidos = new SimpleStringProperty(apellidos);
         this.telefono = new SimpleStringProperty(telefono);
-
+        this.email = new SimpleStringProperty(email);
         this.fechaNacimiento = new SimpleStringProperty(DateFormat.fechaToString(fechaNacimiento));
         this.cuentaBancaria = new SimpleStringProperty(cuentaBancaria);
         this.idClub = new SimpleIntegerProperty(idClub);
@@ -78,6 +78,17 @@ public class FuturoSocio {
         this.telefono.set(telefono);
     }
 
+    public String getEmail() {
+        return email.get();
+    }
+
+    public SimpleStringProperty getEmailProperty() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email.set(email);
+    }
 
     public String getFechaNacimiento() {
         return fechaNacimiento.get();

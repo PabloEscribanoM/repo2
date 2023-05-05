@@ -54,7 +54,7 @@ public class SocioViewController extends ViewUtilities implements Initializable 
         }
     }
 
-    public void actionNext_mod(ActionEvent actionEvent) throws SQLException, ParseException {
+    public void actionNext_mod(ActionEvent actionEvent) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         if (isMod){
             if (!validarCampos().equals("OK"))
                 textErr.setText(validarCampos());
@@ -72,7 +72,24 @@ public class SocioViewController extends ViewUtilities implements Initializable 
                 cerrarVentana(actionEvent);
             }
         }else{
-            //futuro socio
+            if (PersistentData.getFuturoSocioMod() != null){
+                FuturoSocioController.deleteFuturoSocio(PersistentData.getFuturoSocioMod());
+                FuturoSocioController.addFuturoSocio(PersistentData.getFuturoSocioMod());
+                PersistentData.setFuturoSocioMod(null);
+            }
+            PersistentData.setFuturoSocioMod(FuturoSocioController.getNext());
+            if(PersistentData.getFuturoSocioMod() == null)
+                textErr.setText("No quedan mas socios que registrar");
+            else{
+                textNombre.setText(PersistentData.getFuturoSocioMod().getNombre());
+                textApellidos.setText(PersistentData.getFuturoSocioMod().getApellidos());
+                textEmail.setText(PersistentData.getFuturoSocioMod().getEmail());
+                textTelefono.setText(PersistentData.getFuturoSocioMod().getTelefono());
+                textIBAN.setText(PersistentData.getFuturoSocioMod().getCuentaBancaria());
+                textAporte.setText("0");
+                textAdeudo.setText("0");
+                dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getFuturoSocioMod().getFechaNacimientoaDate()));
+            }
         }
     }
 
@@ -108,6 +125,11 @@ public class SocioViewController extends ViewUtilities implements Initializable 
                 textAporte.setText("");
                 textAdeudo.setText("");
                 dateNacimiento.setValue(null);
+
+                if(PersistentData.getFuturoSocioMod()!= null){
+                    FuturoSocioController.deleteFuturoSocio(PersistentData.getFuturoSocioMod());
+                    PersistentData.setFuturoSocioMod(null);
+                }
             }
         }
     }

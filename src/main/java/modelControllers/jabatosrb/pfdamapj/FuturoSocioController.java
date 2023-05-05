@@ -35,6 +35,7 @@ public class FuturoSocioController {
                     rs.getString("futuro_socio_nombre"),
                     rs.getString("futuro_socio_apellidos"),
                     rs.getString("futuro_socio_telefono"),
+                    rs.getString("futuro_socio_email"),
                     fechaNacimiento,
                     rs.getString("Futuro_socio_cuentaBancaria"),
                     rs.getInt("Futuro_socio_id_club")
@@ -59,7 +60,7 @@ public class FuturoSocioController {
         ps.close();
     }
     public static void addFuturoSocio(FuturoSocio futuroSocio) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String sql = "INSERT INTO Futuro_socio VAlUES (NULL, ?, ?, ?, ?, ?, 1)";
+        String sql = "INSERT INTO Futuro_socio VAlUES (NULL, ?, ?, ?, ?, ?, 1, ?)";
 
         PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
 
@@ -68,6 +69,7 @@ public class FuturoSocioController {
         ps.setString(3, futuroSocio.getTelefono());
         ps.setDate(4, new java.sql.Date(futuroSocio.getFechaNacimientoaDate().getTime()));
         ps.setString(5, futuroSocio.getCuentaBancaria());
+        ps.setString(6, futuroSocio.getEmail());
 
         ps.executeUpdate();
 

@@ -41,7 +41,7 @@ public class FuturoSocioViewController extends ViewUtilities {
             textErr.setText(validarCampos());
         }else{
             PersistentData.setFuturoSocioMod(new FuturoSocio(0, textNombre.getText().trim(), textApellidos.getText().trim(),
-                    textTelefono.getText().trim(), DateFormat.toDate(dateNacimiento.getValue()), textIBAN.getText().trim(), 1));
+                    textTelefono.getText().trim(), textEmail.getText().trim(), DateFormat.toDate(dateNacimiento.getValue()), textIBAN.getText().trim(), 1));
             FuturoSocioController.addFuturoSocio(PersistentData.getFuturoSocioMod());
             cerrarVentana(actionEvent);
         }
