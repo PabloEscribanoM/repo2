@@ -14,9 +14,7 @@ public class FuturoSocio {
     private SimpleStringProperty nombre;
     private SimpleStringProperty apellidos;
     private SimpleStringProperty telefono;
-    private SimpleStringProperty descripcion;
-    private SimpleStringProperty fechaAlta;
-    private SimpleStringProperty fechaBaja;
+
     private SimpleStringProperty fechaNacimiento;
     private SimpleStringProperty cuentaBancaria;
     private SimpleIntegerProperty idClub;
@@ -26,9 +24,7 @@ public class FuturoSocio {
         this.nombre = new SimpleStringProperty(nombre);
         this.apellidos = new SimpleStringProperty(apellidos);
         this.telefono = new SimpleStringProperty(telefono);
-        this.descripcion = new SimpleStringProperty(descripcion);
-        this.fechaAlta = new SimpleStringProperty(DateFormat.fechaToString(fechaAlta));
-        this.fechaBaja = new SimpleStringProperty(DateFormat.fechaToString(fechaBaja));
+
         this.fechaNacimiento = new SimpleStringProperty(DateFormat.fechaToString(fechaNacimiento));
         this.cuentaBancaria = new SimpleStringProperty(cuentaBancaria);
         this.idClub = new SimpleIntegerProperty(idClub);
@@ -82,49 +78,6 @@ public class FuturoSocio {
         this.telefono.set(telefono);
     }
 
-    public String getDescripcion() {
-        return descripcion.get();
-    }
-
-    public SimpleStringProperty getDescripcionProperty() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion.set(descripcion);
-    }
-
-    public String getFechaAlta() {
-        return fechaAlta.get();
-    }
-
-    public SimpleStringProperty getFechaAltaProperty() {
-        return fechaAlta;
-    }
-
-    public Date getFechaAltaDate() throws ParseException {
-        return DateFormat.fechaToDate(fechaAlta.get());
-    }
-
-    public void setFechaAlta(Date fechaAlta) {
-        this.fechaAlta.set(DateFormat.fechaToString(fechaAlta));
-    }
-
-    public String getFechaBaja() {
-        return fechaBaja.get();
-    }
-
-    public SimpleStringProperty getFechaBajaProperty() {
-        return fechaBaja;
-    }
-
-    public Date getFechaBajaDate() throws ParseException {
-        return DateFormat.fechaToDate(fechaBaja.get());
-    }
-
-    public void setFechaBaja(Date fechaBaja) {
-        this.fechaBaja.set(DateFormat.fechaToString(fechaBaja));
-    }
 
     public String getFechaNacimiento() {
         return fechaNacimiento.get();

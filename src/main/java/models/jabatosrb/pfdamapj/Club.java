@@ -12,8 +12,9 @@ public class Club {
     private SimpleDoubleProperty clubGastos;
     private SimpleDoubleProperty clubIngresos;
     private SimpleDoubleProperty clubResTotal;
+    private SimpleDoubleProperty clubIngresosPrevistos;
 
-    public Club(int clubId, String clubNombre, String clubTelefono, String clubIdFiscal, Double clubGastos, Double clubIngresos, Double clubResTotal) {
+    public Club(int clubId, String clubNombre, String clubTelefono, String clubIdFiscal, Double clubGastos, Double clubIngresos, Double clubResTotal, Double clubIngresosPrevisitos) {
         this.clubId = new SimpleIntegerProperty(clubId);
         this.clubNombre = new SimpleStringProperty(clubNombre);
         this.clubTelefono = new SimpleStringProperty(clubTelefono);
@@ -21,6 +22,7 @@ public class Club {
         this.clubGastos = new SimpleDoubleProperty(clubGastos);
         this.clubIngresos = new SimpleDoubleProperty(clubIngresos);
         this.clubResTotal = new SimpleDoubleProperty(clubResTotal);
+        this.clubIngresosPrevistos =new SimpleDoubleProperty(clubIngresosPrevisitos);
     }
 
     public int getClubId() {return clubId.get();}
@@ -63,5 +65,19 @@ public class Club {
 
     public SimpleDoubleProperty clubResTotalProperty() {return clubResTotal;}
 
-    public void setClubResTotal(double clubResTotal) {this.clubResTotal.set(clubResTotal);}
+    public double getClubIngresosPrevistos() {
+        return clubIngresosPrevistos.get();
+    }
+
+    public SimpleDoubleProperty clubIngresosPrevistosProperty() {
+        return clubIngresosPrevistos;
+    }
+
+    public void setClubIngresosPrevistos(double clubIngresosPrevistos) {
+        this.clubIngresosPrevistos.set(clubIngresosPrevistos);
+    }
+
+    public void setClubResTotal(double clubResTotal) {this.clubResTotal.set(clubResTotal);
+
+    }
 }
