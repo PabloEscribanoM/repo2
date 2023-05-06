@@ -163,6 +163,10 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             textSalario.requestFocus();
             return "El salario tiene que ser numérico";
         }
+        if(DateFormat.anyos(DateFormat.toDate(dateNacimiento.getValue()))<18){
+            dateNacimiento.requestFocus();
+            return "Los administradores tienen que ser mayores de edad";
+        }
         return "OK";
     }
 }

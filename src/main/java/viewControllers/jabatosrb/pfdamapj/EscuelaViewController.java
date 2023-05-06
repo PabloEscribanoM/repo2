@@ -175,6 +175,10 @@ public class EscuelaViewController extends ViewUtilities implements Initializabl
             textAdeudo.requestFocus();
             return "El aporte tiene que ser numérico";
         }
+        if(DateFormat.anyos(DateFormat.toDate(dateNacimiento.getValue()))>=18 && DateFormat.anyos(DateFormat.toDate(dateNacimiento.getValue()))<4){
+            dateNacimiento.requestFocus();
+            return "Los alumnos tienen que tener entre 4 y 18 años de edad";
+        }
         return "OK";
     }
 }

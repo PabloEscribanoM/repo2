@@ -168,6 +168,10 @@ public class SocioViewController extends ViewUtilities implements Initializable 
             textAdeudo.requestFocus();
             return "El aporte tiene que ser numérico";
         }
+        if(DateFormat.anyos(DateFormat.toDate(dateNacimiento.getValue()))<18){
+            dateNacimiento.requestFocus();
+            return "Los socios tienen que ser mayores de edad";
+        }
         return "OK";
     }
 
