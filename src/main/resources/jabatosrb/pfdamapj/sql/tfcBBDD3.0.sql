@@ -148,74 +148,9 @@ Patrocinador_Club_id int,
 foreign key (Patrocinador_Club_id) references Club(Club_id)
 );
 
-INSERT INTO Club VALUES (null, "Jabatos RB", "999999999", "xxxxxxxxx", 0.0, 0.0, 0.0,0.0);
+INSERT INTO Club VALUES (null, "Jabatos RB", "999999999", "xxxxxxxxx", 0.0, 0.0, 0.0, 0.0);
 
-INSERT INTO Administrador (Administrador_id, Administrador_Nombre, Administrador_Email, Administrador_pwd, Administrador_Club_id) 
-	VALUES (null, "MASTER", "master@master.com", "UW4Pp5ZMpPJ6dOzXTfEeZA==", 1); 
 
-INSERT INTO Socio(Soc_id ,Soc_nombre ,Soc_apellido,Soc_mote ,Soc_cuentaBancaria ,Soc_email ,Soc_pwd ,Soc_aporte ,Soc_adeudo ,Soc_fechaNacimiento ,Soc_fechaAlta ,Soc_id_Club )
-VALUES (null,"Jose","Gordon Alonso","Leti","X","xxx@gmail.com","UW4Pp5ZMpPJ6dOzXTfEeZA==",123,123,"1993-08-04","2023-04-13",1);
-
-INSERT INTO Jugadores(Jug_id ,Jug_temporada ,Jug_numFicha   ,Jug_Seccion  ,Jug_aporte ,Jug_federadoPrevio  ,Jug_id_Club ,Jug_adeudo, Jug_id_Socio) 
-VALUES (null,"2022-2023",1,"masculino",123,true,1,123, 1);
-
-INSERT INTO Materiales(Mat_id ,Mat_nombre,Mat_stock ,Mat_Beneficiario,Mat_id_Club, Mat_Precio) 
-VALUES(null,"Balon",12,"x",1, 10);
-INSERT INTO Escuela(Esc_id  ,Esc_nombre,Esc_Apellidos  ,
-Esc_Genero ,
-Esc_numeroFicha ,
-Esc_Tutor_email   ,
-Esc_Tutor_nombre ,
-Esc_Tutor_apellidos  ,
-Esc_Tutor_numTelefono  ,
-Esc_FechaNacimiento ,
-Esc_FechaAlta ,
-Esc_aporte ,
-Esc_id_Club ,
-Esc_cuentaBancaria  ,
-Esc_adeudo ) VALUES(null,"Rigoberto","Gonzalez Martinez","m","3","rigobertotutor@gmail.com","tutor","tutorA1 tutorA2","x","1993-08-04","1993-08-04",1234,1,"x",123);
-INSERT INTO Entrenadores(
-Entrenadores_id  ,
-Entrenadores_nombre ,
-Entrenadores_apellidos ,
-Entrenadores_telefono  ,
-Entrenadores_salario ,
-Entrenadores_fechaAlta ,
-Entrenadores_fechaBaja ,
-Entrenadores_fechaNacimiento ,
-Entrenadores_categoria ,
-Entrenadores_Dni,
-Entrenadores_id_Club ,
-Entrenadores_cuentaBancaria ) VALUES(null,"Francisco","Bas Cordobes","xxxxxxxxxx",1234,"1993-08-04","1993-08-04","1993-08-04","masc","2354363",1,"xx");
-INSERT INTO Administrador(
-Administrador_id,
-Administrador_Nombre ,
-Administrador_Apellidos ,
-Administrador_Email  ,
-Administrador_pwd  ,
-Administrador_Area  ,
-Administrador_DNI  ,
-Administrador_fechaAlta ,
-Administrador_fechaBaja ,
-Administrador_fechaNacimiento ,
-Administrador_Salario ,
-Administrador_cuentaBancaria,
-Administrador_Club_id ) VALUES (null,"Maria","Bascones Mas","mariabmas@hotmail.com","UW4Pp5ZMpPJ6dOzXTfEeZA==","Tesoreria","xxx","2023-04-13",null,"1993-02-15",0,"x",1);
-INSERT INTO  Sugerencias(
-Sugerencia_id ,
-Sugerencia_nombre,
-Sugerencia_mote ,
-Sugerencia_descripcion ,
-Sugerencia_Socio_id ,
-Sugerencia_Club_id ) VALUES(null,"Jose","Leti","Falta cerveza",null,1);
-INSERT INTO Patrocinador(
-Patrocinador_id,
-Patrocinador_nombre,
-Patrocinador_descripcion ,
-Patrocinador_aporte ,
-Patrocinador_cuentaBancaria ,
-Patrocinador_Club_id )
-VALUES (null,"Kappa","x",123,"xx",1);
 
 
 

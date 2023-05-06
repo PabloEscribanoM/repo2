@@ -1,5 +1,6 @@
 package jabatosrb.pfdamapj;
 
+import jabatosrb.pfdampj.DateFormat;
 import jabatosrb.pfdampj.Encrypter;
 import jabatosrb.pfdampj.PersistentData;
 
@@ -64,6 +65,16 @@ public class AdministradorController {
 
         return user;
 
+    }
+
+    public static Administrador getMaster() throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        return getUser("master@master.com", "1234");
+    }
+
+    public static void createMaster() throws ParseException, SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        addAdministrador(new Administrador(0, "MASTER", "MASTER", "master@master.com", "1234",
+                                         "MASTER", "XXXXXXXXX", new Date(), null, DateFormat.fechaToDate("01-01-2020"),
+                                       0.0, "XXXXXXXXX", "XXXXXXXXX", 1));
     }
 
     public static void updatePwds(String oldEncryptKey, String newEncryptKey) throws SQLException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {

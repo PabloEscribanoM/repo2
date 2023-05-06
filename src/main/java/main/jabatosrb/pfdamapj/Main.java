@@ -20,6 +20,7 @@ public class Main extends Application {
         Conexion.openConnection();
         //Recoger el club
         PersistentData.setClub(ClubController.getClub());
+
         //comprovar el encriptado de contraseñas
         String actualMonth = DateFormat.getMonth(new Date());
 
@@ -47,13 +48,17 @@ public class Main extends Application {
 
         PersistentData.setEncryptKey(encryptKey);
 
+        //crear admin master si no existe
+        if (AdministradorController.getMaster()==null){
+            AdministradorController.createMaster();
+        }
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/logIn_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Hello!");
+        stage.setTitle(PersistentData.getClub().getClubNombre() + " - Administración");
         stage.setMinWidth(600);
         stage.setMinHeight(400);
         stage.setScene(scene);
