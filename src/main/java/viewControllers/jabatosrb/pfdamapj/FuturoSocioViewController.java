@@ -52,6 +52,30 @@ public class FuturoSocioViewController extends ViewUtilities {
     }
 
     private String validarCampos(){
+        if(textNombre.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "Nombre no puede ser vacio";
+        }
+        if(textApellidos.getText().trim().equals("")){
+            textApellidos.requestFocus();
+            return "Apellidos no puede ser vacio";
+        }
+        if(!textEmail.getText().trim().matches("[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}")){
+            textEmail.requestFocus();
+            return "Email no válido";
+        }
+        if(!textTelefono.getText().trim().matches("[0-9]{9}")){
+            textTelefono.requestFocus();
+            return "Teléfono no válido";
+        }
+        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+            textIBAN.requestFocus();
+            return "Cuenta bancaria no válida";
+        }
+        if(DateFormat.anyos(DateFormat.toDate(dateNacimiento.getValue()))<18){
+            dateNacimiento.requestFocus();
+            return "Los socios tienen que ser mayores de edad";
+        }
         return "OK";
     }
 }
