@@ -1,6 +1,7 @@
 package jabatosrb.pfdamapj;
 
 import jabatosrb.pfdampj.DateFormat;
+import jabatosrb.pfdampj.Mail;
 import jabatosrb.pfdampj.PassGenerator;
 import jabatosrb.pfdampj.PersistentData;
 import javafx.event.ActionEvent;
@@ -109,13 +110,21 @@ public class SocioViewController extends ViewUtilities implements Initializable 
             if(!validarCampos().equals("OK"))
                 textErr.setText(validarCampos());
             else{
+                String pass = PassGenerator.generatePass(15, PassGenerator.NUMBERS_LOWER_UPPER);
                 PersistentData.setSocioMod(new Socio(0, textNombre.getText().trim(), textApellidos.getText().trim(),
                         textMote.getText().trim(), textIBAN.getText().trim(), textEmail.getText().trim(),
-                        PassGenerator.generatePass(12, PassGenerator.NUMBERS_LOWER_UPPER), textTelefono.getText().trim(),
+                        pass, textTelefono.getText().trim(),
                         Double.parseDouble(textAporte.getText().trim()), Double.parseDouble(textAdeudo.getText().trim()),
                         DateFormat.toDate(dateNacimiento.getValue()), new Date(), 1));
 
                 SociosController.addSocio(PersistentData.getSocioMod());
+
+                Mail.enviarEmail(PersistentData.getSocioMod().getSocEmail(), "Ingreso como nuevo socio - " + PersistentData.getClub().getClubNombre(),
+                        "Hola " + PersistentData.getSocioMod().getSocNombre() + " " + PersistentData.getSocioMod().getSocApellido() + ", \n" +
+                        "Ha sido admitido como socio de " + PersistentData.getClub().getClubNombre() + "\n" +
+                        "Puede acceder a la aplicación de socios usando su correro electrónico y la contraseña: \n" +
+                        "\t\t" + pass
+                        );
 
                 textNombre.setText("");
                 textApellidos.setText("");
@@ -156,7 +165,7 @@ public class SocioViewController extends ViewUtilities implements Initializable 
             textTelefono.requestFocus();
             return "Teléfono no válido";
         }
-        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+        if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
             textIBAN.requestFocus();
             return "Cuenta bancaria no válida";
         }

@@ -68,7 +68,7 @@ public class FuturoSocioViewController extends ViewUtilities {
             textTelefono.requestFocus();
             return "Teléfono no válido";
         }
-        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+        if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
             textIBAN.requestFocus();
             return "Cuenta bancaria no válida";
         }

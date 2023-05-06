@@ -10,9 +10,9 @@ import java.util.Properties;
 
 public class Mail {
     // tutorial: https://www.campusmvp.es/recursos/post/como-enviar-correo-electronico-con-java-a-traves-de-gmail.aspx
-    private static String remitente = "correo.prueba.jabatos@gmail.com";
+    private static String remitente = "jabatos.rb.autom@gmail.com";
     //"contraseña" que se obtiene desde tu cuenta de google
-    private static String claveEmail = "nbosckswwemydqct";
+    private static String claveEmail = "gesrwrqjtcnheikp";
 
     public static void enviarEmail(String destinatario, String asunto, String cuerpo){
         Properties props = System.getProperties();

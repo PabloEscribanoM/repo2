@@ -154,7 +154,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             textCategoria.requestFocus();
             return "Area no válida";
         }
-        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+        if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
             textIBAN.requestFocus();
             return "Cuenta bancaria no válida";
         }

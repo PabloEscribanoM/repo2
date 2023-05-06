@@ -18,7 +18,7 @@ Soc_id int  primary key auto_increment,
 Soc_nombre varchar (100),
 Soc_apellido varchar (100),
 Soc_mote varchar (100),
-Soc_cuentaBancaria varchar (100),
+Soc_cuentaBancaria varchar (24),
 Soc_email varchar (100) unique,
 Soc_pwd varchar (90),
 Soc_numTelefono varchar (100) unique,
@@ -70,7 +70,7 @@ Esc_FechaNacimiento date,
 Esc_FechaAlta date,
 Esc_aporte double,
 Esc_id_Club int,
-Esc_cuentaBancaria varchar (12),
+Esc_cuentaBancaria varchar (24),
 Esc_adeudo double,
 
 foreign key (Esc_id_Club) references Club(Club_id)
@@ -91,7 +91,7 @@ Entrenadores_fechaNacimiento date,
 Entrenadores_categoria varchar(100),
 Entrenadores_Dni varchar(9),
 Entrenadores_id_Club int,
-Entrenadores_cuentaBancaria varchar(12),
+Entrenadores_cuentaBancaria varchar(24),
 
 foreign key (Entrenadores_id_Club) references Club(Club_id)
 );
@@ -109,7 +109,7 @@ Administrador_fechaAlta date,
 Administrador_fechaBaja date,
 Administrador_fechaNacimiento date,
 Administrador_Salario double,
-Administrador_cuentaBancaria varchar (12),
+Administrador_cuentaBancaria varchar (24),
 Administrador_Club_id int,
 
 foreign key (Administrador_Club_id) references Club(Club_id)
@@ -120,7 +120,7 @@ futuro_socio_nombre varchar(100),
 futuro_socio_apellidos varchar(100),
 futuro_socio_telefono varchar (10),
 Futuro_socio_fechaNacimiento date,
-Futuro_socio_cuentaBancaria varchar (12),
+Futuro_socio_cuentaBancaria varchar (24),
 Futuro_socio_id_club int,
 Futuro_socio_email varchar(100),
 
@@ -143,7 +143,7 @@ Patrocinador_id int primary key auto_increment,
 Patrocinador_nombre varchar(100),
 Patrocinador_descripcion varchar(300),
 Patrocinador_aporte double,
-Patrocinador_cuentaBancaria varchar (12),
+Patrocinador_cuentaBancaria varchar (24),
 Patrocinador_Club_id int,
 foreign key (Patrocinador_Club_id) references Club(Club_id)
 );

@@ -1,6 +1,7 @@
 package jabatosrb.pfdamapj;
 
 import jabatosrb.pfdampj.DateFormat;
+import jabatosrb.pfdampj.Mail;
 import jabatosrb.pfdampj.PassGenerator;
 import jabatosrb.pfdampj.PersistentData;
 import javafx.event.ActionEvent;
@@ -108,11 +109,19 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             if(!validarCampos().equals("OK"))
                 textErr.setText(validarCampos());
             else{
+                String pass = PassGenerator.generatePass(15,PassGenerator.NUMBERS_LOWER_UPPER);
                 PersistentData.setAdminMod(new Administrador(0, textNombre.getText().trim(), textApellidos.getText().trim(), textEmail.getText().trim(),
-                        PassGenerator.generatePass(8,PassGenerator.NUMBERS_LOWER), textArea.getText().trim(), textDni.getText().trim(), new Date(),null, DateFormat.toDate(dateNacimiento.getValue()),
+                        pass, textArea.getText().trim(), textDni.getText().trim(), new Date(),null, DateFormat.toDate(dateNacimiento.getValue()),
                          Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),textTelefono.getText().trim(),1));
 
                 AdministradorController.addAdministrador(PersistentData.getAdminMod());
+
+                Mail.enviarEmail(PersistentData.getAdminMod().getEmail(), "Registro como administrador - " + PersistentData.getClub().getClubNombre(),
+                        "Hola " + PersistentData.getAdminMod().getNombre() + " " + PersistentData.getAdminMod().getApellidos() + ", \n" +
+                        "Ha sido registrado como administrador de " + PersistentData.getClub().getClubNombre() + "\n" +
+                        "Puede acceder a la aplicación de administradores usando su correro electrónico y la contraseña: \n" +
+                        "\t\t" + pass
+                );
 
                 textNombre.setText("");
                 textApellidos.setText("");
@@ -155,7 +164,8 @@ public class AdminViewController extends ViewUtilities implements Initializable 
             textArea.requestFocus();
             return "Area no válida";
         }
-        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+        if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
+            System.out.println(textIBAN.getText().trim());
             textIBAN.requestFocus();
             return "Cuenta bancaria no válida";
         }

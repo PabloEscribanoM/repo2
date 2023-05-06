@@ -107,7 +107,7 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
             textAporte.requestFocus();
             return "El salario tiene que ser numérico";
         }
-        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+        if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
             textIBAN.requestFocus();
             return "Cuenta bancaria no válida";
         }
