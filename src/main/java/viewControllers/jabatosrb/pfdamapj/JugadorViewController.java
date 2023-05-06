@@ -38,7 +38,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
     @FXML
     private TextField fichaTxt;
     @FXML
-    private TextField seccionTxt;
+    private ComboBox comboSeccion;
     @FXML
     private TextField temporadaTxt;
     @FXML
@@ -49,6 +49,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        comboSeccion.setItems(FXCollections.observableArrayList("M", "F"));
         if(PersistentData.getSocioJugadorMod()!=null){
             isMod=true;
             btnNext_mod.setText("Modificar");
@@ -59,7 +60,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
             textAporte.setText(PersistentData.getSocioJugadorMod().getJugador().getAporte() + "");
             textAdeudo.setText(PersistentData.getSocioJugadorMod().getJugador().getAdeudo() + "");
             fichaTxt.setText(PersistentData.getSocioJugadorMod().getJugador().getNumFicha());
-            seccionTxt.setText(PersistentData.getSocioJugadorMod().getJugador().getTemporada());
+            comboSeccion.getSelectionModel().select(PersistentData.getSocioJugadorMod().getJugador().getSeccion());
             temporadaTxt.setText(PersistentData.getSocioJugadorMod().getJugador().getTemporada());
             federadoCheck.setSelected(PersistentData.getSocioJugadorMod().getJugador().getFederadoPrevio());
         }else{
@@ -72,6 +73,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
             nombre.setItems(FXCollections.observableArrayList(sociosNoJugador));
             if(!sociosNoJugador.isEmpty()){
                 nombre.getSelectionModel().selectFirst();
+                comboSeccion.getSelectionModel().selectFirst();
             }
         }
     }
@@ -82,7 +84,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
             PersistentData.getSocioJugadorMod().getJugador().setAporte(Double.parseDouble(textAporte.getText().trim()));
             PersistentData.getSocioJugadorMod().getJugador().setAdeudo(Double.parseDouble(textAdeudo.getText().trim()));
             PersistentData.getSocioJugadorMod().getJugador().setNumFicha(fichaTxt.getText().trim());
-            PersistentData.getSocioJugadorMod().getJugador().setSeccion(seccionTxt.getText().trim());
+            PersistentData.getSocioJugadorMod().getJugador().setSeccion((String)comboSeccion.getSelectionModel().getSelectedItem());
             PersistentData.getSocioJugadorMod().getJugador().setTemporada(temporadaTxt.getText().trim());
             PersistentData.getSocioJugadorMod().getJugador().setFederadoPrevio(federadoCheck.isSelected());
             JugadorController.updateJugadores(PersistentData.getSocioJugadorMod().getJugador());
@@ -106,7 +108,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
                 textErr.setText(validarCampos());
             else{
                 PersistentData.setSocioJugadorMod(new SocioJugador(new Jugador(0, temporadaTxt.getText().trim(),
-                        fichaTxt.getText().trim(), seccionTxt.getText().trim(), Double.parseDouble(textAporte.getText().trim()),
+                        fichaTxt.getText().trim(), (String) comboSeccion.getSelectionModel().getSelectedItem(), Double.parseDouble(textAporte.getText().trim()),
                         federadoCheck.isSelected(), ((Socio)nombre.getSelectionModel().getSelectedItem()).getSocId(), 1,
                         Double.parseDouble(textAdeudo.getText().trim())), null, null, null, null, 0, 0));
 
@@ -118,7 +120,6 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
                     nombre.getSelectionModel().selectFirst();
                 }
                 fichaTxt.setText("");
-                seccionTxt.setText("");
                 temporadaTxt.setText("");
                 federadoCheck.setSelected(false);
                 textAporte.setText("");
@@ -133,7 +134,23 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
     }
 
     private String validarCampos() {
-            return "OK";
+        if(fichaTxt.getText().trim().equals("")){
+            fichaTxt.requestFocus();
+            return "La ficha no puede ser vacía";
+        }
+        if (temporadaTxt.getText().trim().matches("\\d{4}-\\d{4}")){
+            temporadaTxt.requestFocus();
+            return "La temporada no tiene un formato válido (YYYY-YYYY)";
+        }
+        if(!textAporte.getText().trim().matches("[0-9]+\\.?[0-9]*")){
+            textAporte.requestFocus();
+            return "El aporte tiene que ser numérico";
+        }
+        if(!textAdeudo.getText().trim().matches("[0-9]+\\.?[0-9]*")){
+            textAdeudo.requestFocus();
+            return "El aporte tiene que ser numérico";
+        }
+        return "OK";
     }
 
 }

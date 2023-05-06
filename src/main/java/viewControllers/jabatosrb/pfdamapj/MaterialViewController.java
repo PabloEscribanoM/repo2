@@ -110,6 +110,22 @@ public class MaterialViewController extends ViewUtilities implements Initializab
     }
 
     private String validarCampos() {
+        if(textNombre.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "Nombre no puede ser vacio";
+        }
+        if(!textStock.getText().trim().matches("[0-9]+")){
+            textStock.requestFocus();
+            return "El stock tiene que ser numérico";
+        }
+        if(!textPrecio.getText().trim().matches("[0-9]+\\.?[0-9]*")){
+            textPrecio.requestFocus();
+            return "El precio tiene que ser numérico";
+        }
+        if(textDesc.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "La descripción no puede ser vacia";
+        }
         return "OK";
     }
 }

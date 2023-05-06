@@ -148,10 +148,6 @@ public class SocioViewController extends ViewUtilities implements Initializable 
             textApellidos.requestFocus();
             return "Apellidos no puede ser vacio";
         }
-        if(textMote.getText().trim().equals("")){
-            textMote.requestFocus();
-            return "Mote no puede ser vacio";
-        }
         if(!textEmail.getText().trim().matches("[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}")){
             textEmail.requestFocus();
             return "Email no válido";
@@ -160,8 +156,7 @@ public class SocioViewController extends ViewUtilities implements Initializable 
             textTelefono.requestFocus();
             return "Teléfono no válido";
         }
-        if(textIBAN.getText().trim().equals("")){
-            //validar en condiciones
+        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
             textIBAN.requestFocus();
             return "Cuenta bancaria no válida";
         }

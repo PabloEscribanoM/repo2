@@ -130,6 +130,38 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
     }
 
     private String validarCampos() {
+        if(textNombre.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "Nombre no puede ser vacio";
+        }
+        if(textApellidos.getText().trim().equals("")){
+            textApellidos.requestFocus();
+            return "Apellidos no puede ser vacio";
+        }
+        if(!textEmail.getText().trim().matches("[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}")){
+            textEmail.requestFocus();
+            return "Email no válido";
+        }
+        if(!textTelefono.getText().trim().matches("[0-9]{9}")){
+            textTelefono.requestFocus();
+            return "Teléfono no válido";
+        }
+        if(!textDni.getText().trim().matches("\\d{8}[a-zA-Z]")){
+            textDni.requestFocus();
+            return "DNI no válido";
+        }
+        if(textCategoria.getText().trim().equals("")){
+            textCategoria.requestFocus();
+            return "Area no válida";
+        }
+        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+            textIBAN.requestFocus();
+            return "Cuenta bancaria no válida";
+        }
+        if(!textSalario.getText().trim().matches("[0-9]+\\.?[0-9]*")){
+            textSalario.requestFocus();
+            return "El salario tiene que ser numérico";
+        }
         return "OK";
     }
 }

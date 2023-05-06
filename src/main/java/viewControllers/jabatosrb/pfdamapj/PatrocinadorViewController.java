@@ -99,6 +99,22 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
     public void actionCancel(ActionEvent actionEvent) {cerrarVentana(actionEvent);}
 
     private String validarCampos() {
+        if(textNombre.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "Nombre no puede ser vacio";
+        }
+        if(!textAporte.getText().trim().matches("[0-9]+\\.?[0-9]*")){
+            textAporte.requestFocus();
+            return "El salario tiene que ser numérico";
+        }
+        if(textIBAN.getText().trim().matches("[a-zA-Z]{2}\\d{22}")){
+            textIBAN.requestFocus();
+            return "Cuenta bancaria no válida";
+        }
+        if(textDesc.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "La descripción no puede ser vacia";
+        }
         return "OK";
     }
 }
