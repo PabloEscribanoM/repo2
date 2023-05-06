@@ -53,6 +53,7 @@ public class MaterialViewController extends ViewUtilities implements Initializab
             comboBenef.getSelectionModel().select(PersistentData.getMaterialesMod().getMatBeneficiario());
         }else{
             btnNext_mod.setVisible(false);
+            comboBenef.getSelectionModel().selectFirst();
         }
     }
 
@@ -123,7 +124,7 @@ public class MaterialViewController extends ViewUtilities implements Initializab
             return "El precio tiene que ser numérico";
         }
         if(textDesc.getText().trim().equals("")){
-            textNombre.requestFocus();
+            textDesc.requestFocus();
             return "La descripción no puede ser vacia";
         }
         return "OK";

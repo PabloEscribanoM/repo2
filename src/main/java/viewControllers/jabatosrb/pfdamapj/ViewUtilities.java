@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,6 +22,7 @@ public class ViewUtilities {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(url);
         stage.setScene(new Scene(root));
+        stage.getIcons().add(new Image(ViewUtilities.class.getResource("images/Logo_negro2.jpg").toString()));
         stage.setTitle(title);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());

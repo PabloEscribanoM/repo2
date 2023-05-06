@@ -105,6 +105,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             if(!validarCampos().equals("OK"))
                 textErr.setText(validarCampos());
             else{
+                System.out.println(DateFormat.toDate(dateNacimiento.getValue()));
                 PersistentData.setEntrenadorMod(new Entrenadores(0, textNombre.getText().trim(), textApellidos.getText().trim(), textTelefono.getText().trim(),Double.parseDouble(textSalario.getText().trim()),
                         new Date(),null,DateFormat.toDate(dateNacimiento.getValue()),textCategoria.getText().trim(),textDni.getText().trim(),
                         1,textIBAN.getText().trim(), textEmail.getText().trim()));

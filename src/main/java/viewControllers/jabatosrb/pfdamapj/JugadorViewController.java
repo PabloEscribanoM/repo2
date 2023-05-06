@@ -138,7 +138,7 @@ public class JugadorViewController extends ViewUtilities implements Initializabl
             fichaTxt.requestFocus();
             return "La ficha no puede ser vacía";
         }
-        if (temporadaTxt.getText().trim().matches("\\d{4}-\\d{4}")){
+        if (!temporadaTxt.getText().trim().matches("\\d{4}-\\d{4}")){
             temporadaTxt.requestFocus();
             return "La temporada no tiene un formato válido (YYYY-YYYY)";
         }

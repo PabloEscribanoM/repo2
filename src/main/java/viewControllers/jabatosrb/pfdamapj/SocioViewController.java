@@ -97,7 +97,7 @@ public class SocioViewController extends ViewUtilities implements Initializable 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
             alert.setTitle("Confirmación de borrado");
-            alert.setContentText("¿Estás seguro de querer borrar a " + PersistentData.getSocioMod().getSocMote() + "?");
+            alert.setContentText("¿Estás seguro de querer borrar a " + PersistentData.getSocioMod().getSocNombre() + "?");
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK){
                 SociosController.deleteSocio(PersistentData.getSocioMod());
@@ -115,14 +115,14 @@ public class SocioViewController extends ViewUtilities implements Initializable 
                         DateFormat.toDate(dateNacimiento.getValue()), new Date(), 1));
 
                 SociosController.addSocio(PersistentData.getSocioMod());
-
+                /*
                 new HiloMail(PersistentData.getSocioMod().getSocEmail(), "Ingreso como nuevo socio - " + PersistentData.getClub().getClubNombre(),
                         "Hola " + PersistentData.getSocioMod().getSocNombre() + " " + PersistentData.getSocioMod().getSocApellido() + ", \n" +
                         "Ha sido admitido como socio de " + PersistentData.getClub().getClubNombre() + "\n" +
                         "Puede acceder a la aplicación de socios usando su correro electrónico y la contraseña: \n" +
                         "\t\t" + pass
                         ).start();
-
+                */
                 textNombre.setText("");
                 textApellidos.setText("");
                 textMote.setText("");

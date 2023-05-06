@@ -112,14 +112,14 @@ public class AdminViewController extends ViewUtilities implements Initializable 
                          Double.parseDouble(textSalario.getText().trim()),  textIBAN.getText().trim(),textTelefono.getText().trim(),1));
 
                 AdministradorController.addAdministrador(PersistentData.getAdminMod());
-
+                /*
                 new HiloMail(PersistentData.getAdminMod().getEmail(), "Registro como administrador - " + PersistentData.getClub().getClubNombre(),
                         "Hola " + PersistentData.getAdminMod().getNombre() + " " + PersistentData.getAdminMod().getApellidos() + ", \n" +
                         "Ha sido registrado como administrador de " + PersistentData.getClub().getClubNombre() + "\n" +
                         "Puede acceder a la aplicación de administradores usando su correro electrónico y la contraseña: \n" +
                         "\t\t" + pass
                 ).start();
-
+                */
                 textNombre.setText("");
                 textApellidos.setText("");
                 textEmail.setText("");

@@ -31,11 +31,11 @@ public class EntrenadoresController {
             Date FechaNacimiento = null;
 
             if(rs.getDate("Entrenadores_fechaAlta")!=null)
-                FechaNacimiento = new Date(rs.getDate("Entrenadores_fechaAlta").getTime());
+                FechaAlta = new Date(rs.getDate("Entrenadores_fechaAlta").getTime());
             if(rs.getDate("Entrenadores_fechaBaja")!=null)
-                FechaAlta = new Date(rs.getDate("Entrenadores_fechaBaja").getTime());
+                FechaBaja = new Date(rs.getDate("Entrenadores_fechaBaja").getTime());
             if(rs.getDate("Entrenadores_fechaNacimiento")!=null)
-                FechaAlta = new Date(rs.getDate("Entrenadores_fechaNacimiento").getTime());
+                FechaNacimiento = new Date(rs.getDate("Entrenadores_fechaNacimiento").getTime());
 
             entrenadoresLista.add(new Entrenadores(
                     rs.getInt("Entrenadores_id"),

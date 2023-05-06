@@ -105,7 +105,7 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
         }
         if(!textAporte.getText().trim().matches("[0-9]+\\.?[0-9]*")){
             textAporte.requestFocus();
-            return "El salario tiene que ser numérico";
+            return "El aporte tiene que ser numérico";
         }
         if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
             textIBAN.requestFocus();

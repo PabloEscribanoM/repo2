@@ -4,6 +4,7 @@ import jabatosrb.pfdampj.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
@@ -58,6 +59,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/logIn_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.getIcons().add(new Image(Main.class.getResource("images/Logo_negro2.jpg").toString()));
         stage.setTitle(PersistentData.getClub().getClubNombre() + " - Administración");
         stage.setMinWidth(600);
         stage.setMinHeight(400);
