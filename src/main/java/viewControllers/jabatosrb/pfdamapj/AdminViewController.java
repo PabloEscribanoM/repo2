@@ -1,9 +1,6 @@
 package jabatosrb.pfdamapj;
 
-import jabatosrb.pfdampj.DateFormat;
-import jabatosrb.pfdampj.Mail;
-import jabatosrb.pfdampj.PassGenerator;
-import jabatosrb.pfdampj.PersistentData;
+import jabatosrb.pfdampj.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -116,12 +113,12 @@ public class AdminViewController extends ViewUtilities implements Initializable 
 
                 AdministradorController.addAdministrador(PersistentData.getAdminMod());
 
-                Mail.enviarEmail(PersistentData.getAdminMod().getEmail(), "Registro como administrador - " + PersistentData.getClub().getClubNombre(),
+                new HiloMail(PersistentData.getAdminMod().getEmail(), "Registro como administrador - " + PersistentData.getClub().getClubNombre(),
                         "Hola " + PersistentData.getAdminMod().getNombre() + " " + PersistentData.getAdminMod().getApellidos() + ", \n" +
                         "Ha sido registrado como administrador de " + PersistentData.getClub().getClubNombre() + "\n" +
                         "Puede acceder a la aplicación de administradores usando su correro electrónico y la contraseña: \n" +
                         "\t\t" + pass
-                );
+                ).start();
 
                 textNombre.setText("");
                 textApellidos.setText("");

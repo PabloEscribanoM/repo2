@@ -1,9 +1,6 @@
 package jabatosrb.pfdamapj;
 
-import jabatosrb.pfdampj.DateFormat;
-import jabatosrb.pfdampj.Mail;
-import jabatosrb.pfdampj.PassGenerator;
-import jabatosrb.pfdampj.PersistentData;
+import jabatosrb.pfdampj.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -119,12 +116,12 @@ public class SocioViewController extends ViewUtilities implements Initializable 
 
                 SociosController.addSocio(PersistentData.getSocioMod());
 
-                Mail.enviarEmail(PersistentData.getSocioMod().getSocEmail(), "Ingreso como nuevo socio - " + PersistentData.getClub().getClubNombre(),
+                new HiloMail(PersistentData.getSocioMod().getSocEmail(), "Ingreso como nuevo socio - " + PersistentData.getClub().getClubNombre(),
                         "Hola " + PersistentData.getSocioMod().getSocNombre() + " " + PersistentData.getSocioMod().getSocApellido() + ", \n" +
                         "Ha sido admitido como socio de " + PersistentData.getClub().getClubNombre() + "\n" +
                         "Puede acceder a la aplicación de socios usando su correro electrónico y la contraseña: \n" +
                         "\t\t" + pass
-                        );
+                        ).start();
 
                 textNombre.setText("");
                 textApellidos.setText("");
