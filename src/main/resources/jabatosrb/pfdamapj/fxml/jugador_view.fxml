@@ -31,6 +31,22 @@
             <RowConstraints />
         </rowConstraints>
          <children>
+            <Label text="Socio" GridPane.valignment="CENTER" />
+            <Label text="Ficha" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Sección" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Temporada" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
             <Label text="Aporte" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="5.0" />
@@ -42,45 +58,21 @@
                </GridPane.margin>
             </Label>
             <Label fx:id="textErr" alignment="CENTER" textAlignment="CENTER" textFill="RED" GridPane.columnSpan="3" GridPane.rowIndex="5" />
-            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="6" />
-            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <TextField fx:id="textAporte" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField fx:id="textAdeudo" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <Label text="Socio" GridPane.valignment="CENTER" />
             <ComboBox fx:id="nombre" maxWidth="1.7976931348623157E308" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </ComboBox>
-            <Label text="Ficha" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
-            </Label>
             <TextField fx:id="fichaTxt" alignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="Sección" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <ComboBox fx:id="comboSeccion" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
-            </Label>
-            <Label text="Temporada" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
-            </Label>
+            </ComboBox>
             <TextField fx:id="temporadaTxt" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
@@ -91,11 +83,19 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </CheckBox>
-            <ComboBox fx:id="comboSeccion" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <TextField fx:id="textAporte" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
-            </ComboBox>
+            </TextField>
+            <TextField fx:id="textAdeudo" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="6" />
+            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

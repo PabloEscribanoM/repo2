@@ -39,17 +39,12 @@
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Email" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="10.0" />
-               </GridPane.margin>
-            </Label>
             <Label text="Teléfono" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label text="Email" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
@@ -59,9 +54,12 @@
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Label>
+            <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Label>
             <Label fx:id="textErr" alignment="CENTER" textAlignment="CENTER" textFill="RED" GridPane.columnSpan="3" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#actionSend" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="7" />
             <TextField fx:id="textNombre" alignment="CENTER" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
@@ -72,12 +70,12 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="textEmail" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+            <TextField fx:id="textTelefono" alignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="textTelefono" alignment="CENTER" GridPane.rowIndex="3">
+            <TextField fx:id="textEmail" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
@@ -92,6 +90,8 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </DatePicker>
+            <Button mnemonicParsing="false" onAction="#actionSend" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </children>

@@ -526,27 +526,17 @@
                                     <Insets bottom="10.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label text="Email" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" />
-                                 </GridPane.margin>
-                              </Label>
                               <Label text="DNI" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                              <Label text="Email" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label text="IBAN" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Salario" GridPane.rowIndex="6">
+                              <Label text="Teléfono" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" />
                                  </GridPane.margin>
@@ -556,7 +546,32 @@
                                     <Insets bottom="10.0" />
                                  </GridPane.margin>
                               </Label>
+                              <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Salario" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="IBAN" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Nueva contraseña" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin>
+                              </Label>
                               <Label fx:id="textErr" alignment="CENTER" textAlignment="CENTER" textFill="RED" GridPane.columnSpan="3" GridPane.rowIndex="8" />
+                              <Label text="Contraseña" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin>
+                              </Label>
                               <TextField fx:id="textNombre" alignment="CENTER" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="10.0" right="10.0" top="5.0" />
@@ -613,21 +628,6 @@
                                  </GridPane.margin>
                               </PasswordField>
                               <Button mnemonicParsing="false" onAction="#actionModify" text="Modificar" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                              <Label text="Teléfono" GridPane.rowIndex="4">
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Nueva contraseña" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Contraseña" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
                            </children>
                         </GridPane>
                      </children>

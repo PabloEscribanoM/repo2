@@ -42,12 +42,22 @@
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Label>
+            <Label text="Género" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Label>
             <Label text="Nombre Padre" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Label>
             <Label text="Apellidos Padre" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Email" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
@@ -78,9 +88,6 @@
                </GridPane.margin>
             </Label>
             <Label fx:id="textErr" alignment="CENTER" textAlignment="CENTER" textFill="RED" GridPane.columnSpan="3" GridPane.rowIndex="8" />
-            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="9" />
-            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="9" />
             <TextField fx:id="textNombre" alignment="CENTER" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
@@ -91,6 +98,11 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
+            <ComboBox fx:id="genero" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </ComboBox>
             <TextField fx:id="textNombrePadre" alignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
@@ -106,6 +118,16 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
+            <TextField fx:id="textEmail" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <DatePicker fx:id="dateNacimiento" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </DatePicker>
             <TextField fx:id="textIBAN" alignment="CENTER" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
@@ -121,31 +143,9 @@
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <DatePicker fx:id="dateNacimiento" GridPane.columnIndex="2" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
-               </GridPane.margin>
-            </DatePicker>
-            <Label text="Email" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets bottom="10.0" />
-               </GridPane.margin>
-            </Label>
-            <TextField fx:id="textEmail" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <ComboBox fx:id="genero" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
-               </GridPane.margin>
-            </ComboBox>
-            <Label text="Género" GridPane.columnIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="10.0" />
-               </GridPane.margin>
-            </Label>
+            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="9" />
+            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="9" />
          </children>
       </GridPane>
    </children>
