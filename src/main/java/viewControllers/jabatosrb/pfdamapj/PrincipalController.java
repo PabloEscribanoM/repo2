@@ -210,9 +210,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
     public void socioModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setSocioMod((Socio)socioTabla.getSelectionModel().getSelectedItem());
         //abrir ventana modal
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/socio_view.fxml"), "Modificar socio - id: " + PersistentData.getSocioMod().getSocId());
-        PersistentData.setSocioMod(null);
-        actualizarSocios();
+        if (PersistentData.getSocioMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/socio_view.fxml"), "Modificar socio - id: " + PersistentData.getSocioMod().getSocId());
+            PersistentData.setSocioMod(null);
+            actualizarSocios();
+        }
     }
     // jugadores
     public void jugadoresBuscar(ActionEvent actionEvent) {
@@ -227,9 +229,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
 
     public void jugadoresModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setSocioJugadorMod((SocioJugador) jugadorTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/jugador_view.fxml"), "Jugador id: " + PersistentData.getSocioJugadorMod().getJugador().getNumFicha());
-        PersistentData.setSocioJugadorMod(null);
-        actualizarJugadores();
+        if (PersistentData.getSocioJugadorMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/jugador_view.fxml"), "Jugador id: " + PersistentData.getSocioJugadorMod().getJugador().getNumFicha());
+            PersistentData.setSocioJugadorMod(null);
+            actualizarJugadores();
+        }
     }
     // escuela
     public void escuelaBuscar(ActionEvent actionEvent) {
@@ -244,9 +248,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
 
     public void escuelaModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setEscuelaMod((Escuela) escuelaTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/escuela_view.fxml"), "Escuela id: " + PersistentData.getEscuelaMod().getId());
-        PersistentData.setEscuelaMod(null);
-        actualizarEscuela();
+        if (PersistentData.getEscuelaMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/escuela_view.fxml"), "Escuela id: " + PersistentData.getEscuelaMod().getId());
+            PersistentData.setEscuelaMod(null);
+            actualizarEscuela();
+        }
     }
     //admin
     public void adminBuscar(ActionEvent actionEvent) {actualizarAdministracion();}
@@ -258,9 +264,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
     }
     public void adminModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setAdminMod((Administrador) adminTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/admin_view.fxml"), "Admin id: " + PersistentData.getAdminMod().getId());
-        PersistentData.setAdminMod(null);
-        actualizarAdministracion();
+        if (PersistentData.getAdminMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/admin_view.fxml"), "Admin id: " + PersistentData.getAdminMod().getId());
+            PersistentData.setAdminMod(null);
+            actualizarAdministracion();
+        }
     }
     //entrenadores
     public void entrenadoresBuscar(ActionEvent actionEvent) {actualizarEntrenadores();}
@@ -272,9 +280,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
     }
     public void entrenadorModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setEntrenadorMod((Entrenadores) entrenadoresTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Entrenador id: " + PersistentData.getEntrenadorMod().getId());
-        PersistentData.setEntrenadorMod(null);
-        actualizarEntrenadores();
+        if (PersistentData.getEntrenadorMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/entrenador_view.fxml"), "Entrenador id: " + PersistentData.getEntrenadorMod().getId());
+            PersistentData.setEntrenadorMod(null);
+            actualizarEntrenadores();
+        }
     }
     //material
     public void materialBuscar(ActionEvent actionEvent) {actualizarMateriales();}
@@ -285,9 +295,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
     }
     public void materialModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setMaterialesMod((Materiales) materialTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Material id: " + PersistentData.getMaterialesMod().getMatId());
-        PersistentData.setMaterialesMod(null);
-        actualizarMateriales();
+        if (PersistentData.getMaterialesMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Material id: " + PersistentData.getMaterialesMod().getMatId());
+            PersistentData.setMaterialesMod(null);
+            actualizarMateriales();
+        }
     }
     //patrocinadores
     public void patroBuscar(ActionEvent actionEvent) {
@@ -302,9 +314,11 @@ public class PrincipalController extends ViewUtilities implements Initializable 
 
     public void patroModificar(MouseEvent mouseEvent) throws IOException {
         PersistentData.setPatrocinadorMod((Patrocinador) patroTabla.getSelectionModel().getSelectedItem());
-        ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/patrocinador_view.fxml"), "Patrocinador id: " + PersistentData.getPatrocinadorMod().getId());
-        PersistentData.setPatrocinadorMod(null);
-        actualizarMateriales();
+        if (PersistentData.getPatrocinadorMod() != null){
+            ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/patrocinador_view.fxml"), "Patrocinador id: " + PersistentData.getPatrocinadorMod().getId());
+            PersistentData.setPatrocinadorMod(null);
+            actualizarMateriales();
+        }
     }
     //club
     public void actualizaDatos(Event event) throws SQLException {
