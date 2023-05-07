@@ -2,6 +2,7 @@ package jabatosrb.pfdamapj;
 
 import jabatosrb.pfdampj.DateFormat;
 import jabatosrb.pfdampj.PersistentData;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,7 +40,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
     @FXML
     private TextField textSalario;
     @FXML
-    private TextField textCategoria;
+    private ComboBox comboCategoria;
     @FXML
     private DatePicker dateNacimiento;
     @FXML
@@ -48,6 +49,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        comboCategoria.setItems(FXCollections.observableArrayList("SUB 6", "SUB 8", "SUB 10", "SUB 12", "SUB 14", "SUB 16","SUB 18", "SENIOR"));
         if(PersistentData.getEntrenadorMod()!=null){
             isMod=true;
             btnNext_mod.setText("Modificar");
@@ -58,7 +60,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             textIBAN.setText(PersistentData.getEntrenadorMod().getCuentaBancaria());
             textSalario.setText(PersistentData.getEntrenadorMod().getSalario() + "");
             textTelefono.setText(PersistentData.getEntrenadorMod().getTelefono());
-            textCategoria.setText(PersistentData.getEntrenadorMod().getCategoria());
+            comboCategoria.getSelectionModel().select(PersistentData.getEntrenadorMod().getCategoria());
             textEmail.setText(PersistentData.getEntrenadorMod().getEmail());
             try {
                 dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getEntrenadorMod().getFechaNacimientoDate()));
@@ -66,13 +68,14 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
                 throw new RuntimeException(e);
             }
         }else{
+            comboCategoria.getSelectionModel().selectFirst();
             btnNext_mod.setVisible(false);
         }
     }
 
     public void actionNext_mod(ActionEvent actionEvent) throws SQLException, ParseException {
         if(!validarCampos().equals("OK")){
-            textErr.setText(validarCampos());//POR HACER
+            textErr.setText(validarCampos());
         }else{
 
             PersistentData.getEntrenadorMod().setNombre(textNombre.getText().trim());
@@ -82,7 +85,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             PersistentData.getEntrenadorMod().setSalario(Double.parseDouble(textSalario.getText().trim()));
             PersistentData.getEntrenadorMod().setCuentaBancaria(textIBAN.getText().trim());
             PersistentData.getEntrenadorMod().setTelefono(textTelefono.getText().trim());
-            PersistentData.getEntrenadorMod().setCategoria(textCategoria.getText().trim());
+            PersistentData.getEntrenadorMod().setCategoria((String)comboCategoria.getSelectionModel().getSelectedItem());
             PersistentData.getEntrenadorMod().setEmail(textEmail.getText().trim());
 
             EntrenadoresController.updateEntrenadores(PersistentData.getEntrenadorMod());
@@ -107,7 +110,7 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
             else{
                 System.out.println(DateFormat.toDate(dateNacimiento.getValue()));
                 PersistentData.setEntrenadorMod(new Entrenadores(0, textNombre.getText().trim(), textApellidos.getText().trim(), textTelefono.getText().trim(),Double.parseDouble(textSalario.getText().trim()),
-                        new Date(),null,DateFormat.toDate(dateNacimiento.getValue()),textCategoria.getText().trim(),textDni.getText().trim(),
+                        new Date(),null,DateFormat.toDate(dateNacimiento.getValue()),(String)comboCategoria.getSelectionModel().getSelectedItem(),textDni.getText().trim(),
                         1,textIBAN.getText().trim(), textEmail.getText().trim()));
 
                 EntrenadoresController.addEntrenadores(PersistentData.getEntrenadorMod());
@@ -116,10 +119,10 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
                 textApellidos.setText("");
                 textTelefono.setText("");
                 textSalario.setText("");
-                textCategoria.setText("");
                 textIBAN.setText("");
                 textDni.setText("");
                 textEmail.setText("");
+                textErr.setText("");
                 dateNacimiento.setValue(null);
             }
         }
@@ -150,10 +153,6 @@ public class EntrenadorViewController extends ViewUtilities implements Initializ
         if(!textDni.getText().trim().matches("\\d{8}[a-zA-Z]")){
             textDni.requestFocus();
             return "DNI no válido";
-        }
-        if(textCategoria.getText().trim().equals("")){
-            textCategoria.requestFocus();
-            return "Area no válida";
         }
         if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
             textIBAN.requestFocus();

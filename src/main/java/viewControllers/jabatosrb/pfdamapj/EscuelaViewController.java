@@ -129,6 +129,7 @@ public class EscuelaViewController extends ViewUtilities implements Initializabl
                 textAporte.setText("");
                 textAdeudo.setText("");
                 textEmail.setText("");
+                textErr.setText("");
                 dateNacimiento.setValue(null);
             }
         }

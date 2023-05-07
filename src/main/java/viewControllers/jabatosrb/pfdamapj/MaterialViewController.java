@@ -97,6 +97,7 @@ public class MaterialViewController extends ViewUtilities implements Initializab
                 textStock.setText("");
                 textDesc.setText("");
                 textPrecio.setText("");
+                textErr.setText("");
 
             }
         }

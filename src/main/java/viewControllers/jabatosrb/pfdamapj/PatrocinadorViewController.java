@@ -91,6 +91,7 @@ public class PatrocinadorViewController extends ViewUtilities implements Initial
                 textAporte.setText("");
                 textIBAN.setText("");
                 textDesc.setText("");
+                textErr.setText("");
 
             }
         }

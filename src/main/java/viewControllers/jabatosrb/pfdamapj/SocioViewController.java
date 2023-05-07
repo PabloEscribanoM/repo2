@@ -131,6 +131,7 @@ public class SocioViewController extends ViewUtilities implements Initializable 
                 textIBAN.setText("");
                 textAporte.setText("");
                 textAdeudo.setText("");
+                textErr.setText("");
                 dateNacimiento.setValue(null);
 
                 if(PersistentData.getFuturoSocioMod()!= null){

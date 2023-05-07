@@ -129,6 +129,7 @@ public class AdminViewController extends ViewUtilities implements Initializable 
                 textIBAN.setText("");
                 textSalario.setText("");
                 textTelefono.setText("");
+                textErr.setText("");
 
             }
         }
