@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jabatosrb.pfdamapj.EntrenadorViewController">
    <children>
@@ -33,74 +34,119 @@
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="Apellidos" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="Email" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="DNI" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="Teléfono" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="Categoría" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="IBAN" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label text="Salario" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
-            <Label fx:id="textErr" alignment="CENTER" textAlignment="CENTER" textFill="RED" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+            <Label fx:id="textErr" alignment="CENTER" textAlignment="CENTER" textFill="RED" GridPane.columnSpan="3" GridPane.rowIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <TextField fx:id="textNombre" alignment="CENTER" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="textApellidos" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="textEmail" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="textDni" alignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="textTelefono" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
-            <DatePicker fx:id="dateNacimiento" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <DatePicker fx:id="dateNacimiento" stylesheets="@../css/datePicker.css" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
@@ -109,20 +155,38 @@
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="textIBAN" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="textSalario" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
-            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="7" />
-            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="7">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </GridPane>
    </children>
