@@ -56,7 +56,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="textIngresos" alignment="CENTER" editable="false">
+                                          <TextField id="textWhiteMode" fx:id="textIngresos" alignment="CENTER" editable="false" stylesheets="@../css/textField.css">
                                              <HBox.margin>
                                                 <Insets right="70.0" />
                                              </HBox.margin>
@@ -76,7 +76,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="textGastos" alignment="CENTER" editable="false">
+                                          <TextField id="textWhiteMode" fx:id="textGastos" alignment="CENTER" editable="false" stylesheets="@../css/textField.css">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -95,7 +95,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="textTotal" alignment="CENTER" editable="false">
+                                          <TextField id="textWhiteMode" fx:id="textTotal" alignment="CENTER" editable="false" stylesheets="@../css/textField.css">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -114,7 +114,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="textPrev" alignment="CENTER" editable="false">
+                                          <TextField id="textWhiteMode" fx:id="textPrev" alignment="CENTER" editable="false" stylesheets="@../css/textField.css">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -133,7 +133,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="textSit" alignment="CENTER" editable="false">
+                                          <TextField id="textWhiteMode" fx:id="textSit" alignment="CENTER" editable="false" stylesheets="@../css/textField.css">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -156,16 +156,16 @@
                      <children>
                         <GridPane layoutX="200.0" layoutY="141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                           <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#SociosBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#SociosBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -173,7 +173,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#sociosAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#sociosAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -181,7 +181,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="sociosText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="sociosText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -220,16 +220,16 @@
                      <children>
                         <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#jugadoresBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#jugadoresBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -237,7 +237,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#jugadoresAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#jugadoresAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -245,7 +245,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="jugadoresText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="jugadoresText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -280,16 +280,16 @@
                      <children>
                         <GridPane layoutX="200.0" layoutY="141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#escuelaBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#escuelaBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -297,7 +297,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#escuelaAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#escuelaAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -305,7 +305,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="escuelaText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="escuelaText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -347,16 +347,16 @@
                      <children>
                         <GridPane layoutX="200.0" layoutY="141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#adminBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#adminBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -364,7 +364,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#adminAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#adminAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -372,7 +372,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="adminText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="adminText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -411,16 +411,16 @@
                      <children>
                         <GridPane layoutX="200.0" layoutY="141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#entrenadoresBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#entrenadoresBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -428,7 +428,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#entrenadoresAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#entrenadoresAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -436,7 +436,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="entrenadoresText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="entrenadoresText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -475,16 +475,16 @@
                      <children>
                         <GridPane layoutX="200.0" layoutY="141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#materialBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#materialBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -492,7 +492,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#materialAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#materialAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -500,7 +500,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="materialText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="materialText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -534,16 +534,16 @@
                      <children>
                         <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="120.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#patroBuscar" text="Buscar">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#patroBuscar" stylesheets="@../css/button.css" text="Buscar">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -551,7 +551,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#patroAniadir" text="Añadir" GridPane.columnIndex="2">
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#patroAniadir" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -559,7 +559,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="patroText" GridPane.columnIndex="1">
+                              <TextField id="textWhiteMode" fx:id="patroText" stylesheets="@../css/textField.css" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>
@@ -611,7 +611,7 @@
                            <children>
                               <Label text="Nombre">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -619,7 +619,7 @@
                               </Label>
                               <Label text="Apellidos" GridPane.columnIndex="1" GridPane.columnSpan="2">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -627,7 +627,7 @@
                               </Label>
                               <Label text="DNI" GridPane.rowIndex="2">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -635,7 +635,7 @@
                               </Label>
                               <Label text="Email" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -643,7 +643,7 @@
                               </Label>
                               <Label text="Teléfono" GridPane.rowIndex="4">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -651,7 +651,7 @@
                               </Label>
                               <Label text="Area" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -659,7 +659,7 @@
                               </Label>
                               <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -667,7 +667,7 @@
                               </Label>
                               <Label text="Salario" GridPane.rowIndex="6">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -675,7 +675,7 @@
                               </Label>
                               <Label text="IBAN" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -683,7 +683,7 @@
                               </Label>
                               <Label text="Nueva contraseña" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                  <GridPane.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
@@ -698,84 +698,76 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textNombre" alignment="CENTER" GridPane.rowIndex="1">
+                              <TextField id="textWhiteMode" fx:id="textNombre" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="1">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="textApellidos" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                              <TextField id="textWhiteMode" fx:id="textApellidos" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="textDni" alignment="CENTER" GridPane.rowIndex="3">
+                              <TextField id="textWhiteMode" fx:id="textDni" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="3">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="textEmail" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                              <TextField id="textWhiteMode" fx:id="textEmail" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="textTelefono" alignment="CENTER" GridPane.rowIndex="5">
+                              <TextField id="textWhiteMode" fx:id="textTelefono" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="5">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="textArea" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                              <TextField id="textWhiteMode" fx:id="textArea" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <DatePicker fx:id="dateNacimiento" stylesheets="@../css/datePicker.css" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                              <DatePicker id="textWhiteMode" fx:id="dateNacimiento" stylesheets="@../css/datePicker.css" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                               </DatePicker>
-                              <TextField fx:id="textSalario" alignment="CENTER" GridPane.rowIndex="7">
+                              <TextField id="textWhiteMode" fx:id="textSalario" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="7">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="textIBAN" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                              <TextField id="textWhiteMode" fx:id="textIBAN" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                  <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <PasswordField fx:id="textNewPass" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="7">
-                                 <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="5.0" />
-                                 </GridPane.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </PasswordField>
-                              <PasswordField fx:id="textPass" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                              <PasswordField id="textWhiteMode" fx:id="textNewPass" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                  <GridPane.margin>
                                     <Insets left="10.0" right="10.0" />
                                  </GridPane.margin>
@@ -783,7 +775,15 @@
                                     <Font size="14.0" />
                                  </font>
                               </PasswordField>
-                              <Button mnemonicParsing="false" onAction="#actionModify" text="Modificar" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                              <PasswordField id="textWhiteMode" fx:id="textPass" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </PasswordField>
+                              <Button id="buttonLightMode" mnemonicParsing="false" onAction="#actionModify" stylesheets="@../css/button.css" text="Modificar" GridPane.columnIndex="2" GridPane.rowIndex="9">
                                  <font>
                                     <Font size="14.0" />
                                  </font></Button>
@@ -795,7 +795,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button layoutX="719.0" layoutY="451.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesión" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Button id="buttonLightMode" layoutX="719.0" layoutY="451.0" mnemonicParsing="false" onAction="#cerrarSesion" stylesheets="@../css/button.css" text="Cerrar sesión" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="14.0" />
          </font></Button>

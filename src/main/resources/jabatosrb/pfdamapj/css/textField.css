@@ -1,0 +1,39 @@
+#textDarkMode {
+	-fx-accent: #007acc;
+	-fx-background-color: #303030;
+	-fx-background-insets: 0, 0 0 0 0;
+	-fx-background-radius: 0;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-border-color: #b9b9b9;
+	-fx-text-fill: #dddddd;
+}
+
+#textDarkMode:focused {
+	-fx-border-color: #007acc;
+}
+
+#textWhiteMode{
+    -fx-accent: #007acc;
+    -fx-background-color: #F4F4F4;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-border-color: #707070;
+}
+
+#textWhiteMode:focused{
+    -fx-border-color: #007acc;
+}
+
+#textBoxWhiteMode{
+    -fx-accent: #007acc;
+    -fx-background-color: #F4F4F4;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-border-width: 1.5;
+    -fx-border-color: #707070;
+    -fx-border-radius: 1%
+}
+
+#textBoxWhiteMode:focused{
+    -fx-border-color: #007acc;
+}

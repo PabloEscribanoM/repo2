@@ -1,15 +1,12 @@
 
-//Style of each column header in the tableView
 .table-view .column-header {
      -fx-background-color: transparent;
 }
 
-//Style of each column header's background in the tableView
 .table-view .column-header-background{
     -fx-background-color: linear-gradient(#131313 0.0%, #424141 100.0%);
 }
 
- //Style of each column header's label  in the tableView
 .table-view .column-header-background .label{
      -fx-background-color: transparent;
     -fx-font-weight:bold;
@@ -17,14 +14,10 @@
     -fx-font-size:14px;
 }
 
-//Style of each column in the tableView
 .table-view .table-column{
     -fx-alignment:center;
 }
 
- //Style of each table cell
 .table-view .table-cell{
     -fx-font-size:14px;
-    /* -fx-text-fill:orange; */
-
 }

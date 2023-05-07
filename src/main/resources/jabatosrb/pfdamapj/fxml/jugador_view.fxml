@@ -38,7 +38,7 @@
                </font></Label>
             <Label text="Ficha" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -46,7 +46,7 @@
             </Label>
             <Label text="Sección" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -54,7 +54,7 @@
             </Label>
             <Label text="Temporada" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -85,9 +85,9 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </ComboBox>
-            <TextField fx:id="fichaTxt" alignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <TextField id="textWhiteMode" fx:id="fichaTxt" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -95,12 +95,12 @@
             </TextField>
             <ComboBox fx:id="comboSeccion" prefWidth="150.0" stylesheets="@../css/comboBox.css" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </ComboBox>
-            <TextField fx:id="temporadaTxt" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <TextField id="textWhiteMode" fx:id="temporadaTxt" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -114,31 +114,31 @@
                   <Font size="14.0" />
                </font>
             </CheckBox>
-            <TextField fx:id="textAporte" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <TextField id="textWhiteMode" fx:id="textAporte" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textAdeudo" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <TextField id="textWhiteMode" fx:id="textAdeudo" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="6">
+            <Button id="buttonLightMode" fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" stylesheets="@../css/button.css" text="Siguiente" GridPane.rowIndex="6">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Button id="buttonLightMode" fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" stylesheets="@../css/button.css" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="6">
+            <Button id="buttonLightMode" mnemonicParsing="false" onAction="#actionCancel" stylesheets="@../css/button.css" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <font>
                   <Font size="14.0" />
                </font></Button>

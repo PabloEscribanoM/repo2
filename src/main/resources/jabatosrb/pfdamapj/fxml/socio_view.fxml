@@ -42,7 +42,7 @@
             </Label>
             <Label text="Apellidos" GridPane.columnIndex="1" GridPane.columnSpan="2">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -50,7 +50,7 @@
             </Label>
             <Label text="Mote" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -58,7 +58,7 @@
             </Label>
             <Label text="Email" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -66,7 +66,7 @@
             </Label>
             <Label text="Teléfono" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -74,7 +74,7 @@
             </Label>
             <Label text="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -82,7 +82,7 @@
             </Label>
             <Label text="IBAN" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -90,7 +90,7 @@
             </Label>
             <Label text="Aporte" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -98,7 +98,7 @@
             </Label>
             <Label text="Adeudo" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="5.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -108,41 +108,41 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <TextField fx:id="textNombre" alignment="CENTER" GridPane.rowIndex="1">
+            <TextField id="textWhiteMode" fx:id="textNombre" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textApellidos" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <TextField id="textWhiteMode" fx:id="textApellidos" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textMote" alignment="CENTER" GridPane.rowIndex="3">
+            <TextField id="textWhiteMode" fx:id="textMote" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textEmail" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+            <TextField id="textWhiteMode" fx:id="textEmail" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textTelefono" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField id="textWhiteMode" fx:id="textTelefono" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
@@ -150,44 +150,44 @@
             </TextField>
             <DatePicker fx:id="dateNacimiento" stylesheets="@../css/datePicker.css" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </DatePicker>
-            <TextField fx:id="textIBAN" alignment="CENTER" GridPane.rowIndex="7">
+            <TextField id="textWhiteMode" fx:id="textIBAN" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.rowIndex="7">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textAporte" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextField id="textWhiteMode" fx:id="textAporte" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="textAdeudo" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="7">
+            <TextField id="textWhiteMode" fx:id="textAdeudo" alignment="CENTER" stylesheets="@../css/textField.css" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <GridPane.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" text="Siguiente" GridPane.rowIndex="9">
+            <Button id="buttonLightMode" fx:id="btnNext_mod" mnemonicParsing="false" onAction="#actionNext_mod" stylesheets="@../css/button.css" text="Siguiente" GridPane.rowIndex="9">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></Button>
-            <Button fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <Button id="buttonLightMode" fx:id="btnAdd_del" mnemonicParsing="false" onAction="#actionAdd_del" stylesheets="@../css/button.css" text="Añadir" textFill="#dddddd" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="9">
+            <Button id="buttonLightMode" mnemonicParsing="false" onAction="#actionCancel" stylesheets="@../css/button.css" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="9">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></Button>
          </children>
       </GridPane>
