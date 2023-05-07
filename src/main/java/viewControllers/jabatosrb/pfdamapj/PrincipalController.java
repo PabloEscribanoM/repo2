@@ -1,5 +1,6 @@
 package jabatosrb.pfdamapj;
 
+import jabatosrb.pfdampj.DateFormat;
 import jabatosrb.pfdampj.PersistentData;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -10,10 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -28,11 +26,11 @@ import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrincipalController extends ViewUtilities implements Initializable {
-
     // Socios
     @FXML
     private TextField sociosText;
@@ -95,6 +93,15 @@ public class PrincipalController extends ViewUtilities implements Initializable 
     private Label lblNombre;
     @FXML
     private TextField textIngresos, textGastos, textTotal, textPrev, textSit;
+    //mi cuenta
+    @FXML
+    private Label textErr;
+    @FXML
+    private TextField textNombre, textApellidos, textDni, textEmail, textTelefono, textArea, textIBAN, textSalario;
+    @FXML
+    private PasswordField textNewPass, textPass;
+    @FXML
+    private DatePicker dateNacimiento;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -165,13 +172,26 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         patroIBAN.setCellValueFactory(new PropertyValueFactory<>("cuentaBancaria"));
         actualizarPatrocinadores();
         //club
-
         lblNombre.setText(PersistentData.getClub().getClubNombre());
         textIngresos.setText(PersistentData.getClub().getClubIngresos() + "");
         textGastos.setText(PersistentData.getClub().getClubGastos() + "");
         textTotal.setText(PersistentData.getClub().getClubResTotal() + "");
         textPrev.setText("" + ClubController.dineroTotal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubIngresosPrevistos(), PersistentData.getClub().getClubGastos()));
         textSit.setText("" + ClubController.dineroReal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubGastos()));
+        //mis datos
+        textNombre.setText(PersistentData.getUser().getNombre());
+        textApellidos.setText(PersistentData.getUser().getApellidos());
+        textDni.setText(PersistentData.getUser().getDni());
+        textEmail.setText(PersistentData.getUser().getEmail());
+        textTelefono.setText(PersistentData.getUser().getTelefono());
+        textArea.setText(PersistentData.getUser().getArea());
+        textSalario.setText(PersistentData.getUser().getSalario() + "");
+        textIBAN.setText(PersistentData.getUser().getCuentaBancaria());
+        try {
+            dateNacimiento.setValue(DateFormat.toLocalDate(PersistentData.getUser().getFechaNacimientoDate()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -228,8 +248,7 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         PersistentData.setEscuelaMod(null);
         actualizarEscuela();
     }
-
-
+    //admin
     public void adminBuscar(ActionEvent actionEvent) {actualizarAdministracion();}
 
     public void adminAniadir(ActionEvent actionEvent) throws IOException {
@@ -243,6 +262,7 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         PersistentData.setAdminMod(null);
         actualizarAdministracion();
     }
+    //entrenadores
     public void entrenadoresBuscar(ActionEvent actionEvent) {actualizarEntrenadores();}
 
     public void entrenadoresAniadir(ActionEvent actionEvent) throws IOException {
@@ -256,6 +276,7 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         PersistentData.setEntrenadorMod(null);
         actualizarEntrenadores();
     }
+    //material
     public void materialBuscar(ActionEvent actionEvent) {actualizarMateriales();}
     public void materialAniadir(ActionEvent actionEvent) throws IOException {
         ventanaModal(actionEvent, PrincipalController.class.getResource("fxml/material_view.fxml"), "Nuevo material");
@@ -268,7 +289,7 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         PersistentData.setMaterialesMod(null);
         actualizarMateriales();
     }
-
+    //patrocinadores
     public void patroBuscar(ActionEvent actionEvent) {
         actualizarPatrocinadores();
     }
@@ -284,6 +305,94 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         ventanaModal(mouseEvent, PrincipalController.class.getResource("fxml/patrocinador_view.fxml"), "Patrocinador id: " + PersistentData.getPatrocinadorMod().getId());
         PersistentData.setPatrocinadorMod(null);
         actualizarMateriales();
+    }
+    //club
+    public void actualizaDatos(Event event) throws SQLException {
+        PersistentData.getClub().setClubIngresos(ClubController.calcularIngresos());
+        PersistentData.getClub().setClubGastos(ClubController.calcularGastos());
+        PersistentData.getClub().setClubIngresosPrevistos(ClubController.calcucularAdeudo());
+        PersistentData.getClub().setClubResTotal(ClubController.ingresosPrevistos(PersistentData.getClub().getClubIngresos(),
+                PersistentData.getClub().getClubIngresosPrevistos()
+        ));
+
+        textIngresos.setText(PersistentData.getClub().getClubIngresos() + "");
+        textGastos.setText(PersistentData.getClub().getClubGastos() + "");
+        textTotal.setText(PersistentData.getClub().getClubResTotal() + "");
+        textPrev.setText("" + ClubController.dineroTotal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubIngresosPrevistos(), PersistentData.getClub().getClubGastos()));
+        textSit.setText("" + ClubController.dineroReal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubGastos()));
+    }
+    //mis datos
+    public void actionModify(ActionEvent actionEvent) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        if(textPass.getText().equals(PersistentData.getUser().getPwd())){
+            if(!validar().equals("OK")){
+                textErr.setText(validar());
+            }else{
+                PersistentData.getUser().setNombre(textNombre.getText().trim());
+                PersistentData.getUser().setApellidos(textApellidos.getText().trim());
+                PersistentData.getUser().setDni(textDni.getText().trim());
+                PersistentData.getUser().setEmail(textEmail.getText().trim());
+                PersistentData.getUser().setTelefono(textTelefono.getText().trim());
+                PersistentData.getUser().setArea(textArea.getText().trim());
+                PersistentData.getUser().setSalario(Double.parseDouble(textSalario.getText().trim()));
+                PersistentData.getUser().setCuentaBancaria(textIBAN.getText().trim());
+                PersistentData.getUser().setFechaNacimiento(DateFormat.toDate(dateNacimiento.getValue()));
+                if(!textNewPass.getText().equals(""))
+                    PersistentData.getUser().setPwd(textNewPass.getText());
+
+                AdministradorController.updateUser(PersistentData.getUser());
+
+                textErr.setText("");
+                textPass.setText("");
+                textNewPass.setText("");
+            }
+        }else{
+            textErr.setText("Contraseña incorrecta");
+        }
+    }
+
+    private String validar() {
+        if(textNombre.getText().trim().equals("")){
+            textNombre.requestFocus();
+            return "Nombre no puede ser vacio";
+        }
+        if(textApellidos.getText().trim().equals("")){
+            textApellidos.requestFocus();
+            return "Apellidos no puede ser vacio";
+        }
+        if(!textEmail.getText().trim().matches("[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}")){
+            textEmail.requestFocus();
+            return "Email no válido";
+        }
+        if(!textTelefono.getText().trim().matches("[0-9]{9}")){
+            textTelefono.requestFocus();
+            return "Teléfono no válido";
+        }
+        if(!textDni.getText().trim().matches("\\d{8}[a-zA-Z]")){
+            textDni.requestFocus();
+            return "DNI no válido";
+        }
+        if(textArea.getText().trim().equals("")){
+            textArea.requestFocus();
+            return "Area no válida";
+        }
+        if(!textIBAN.getText().trim().matches("[a-zA-Z]{2}[0-9]{22}")){
+            System.out.println(textIBAN.getText().trim());
+            textIBAN.requestFocus();
+            return "Cuenta bancaria no válida";
+        }
+        if(!textSalario.getText().trim().matches("[0-9]+\\.?[0-9]*")){
+            textSalario.requestFocus();
+            return "El salario tiene que ser numérico";
+        }
+        if(DateFormat.anyos(DateFormat.toDate(dateNacimiento.getValue()))<18){
+            dateNacimiento.requestFocus();
+            return "Los administradores tienen que ser mayores de edad";
+        }
+        if(!textNewPass.getText().equals("") && !textNewPass.getText().matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{10,}")){
+            textNewPass.requestFocus();
+            return "La contraseña invalida. 1 mayúscula, 1 minúscula, 1 número y 10 caracteres";
+        }
+        return "OK";
     }
 
     public void cerrarSesion(ActionEvent actionEvent) throws IOException {
@@ -357,19 +466,4 @@ public class PrincipalController extends ViewUtilities implements Initializable 
         patroTabla.setItems(FXCollections.observableArrayList(patrocinadores));
     }
 
-
-    public void actualizaDatos(Event event) throws SQLException {
-        PersistentData.getClub().setClubIngresos(ClubController.calcularIngresos());
-        PersistentData.getClub().setClubGastos(ClubController.calcularGastos());
-        PersistentData.getClub().setClubIngresosPrevistos(ClubController.calcucularAdeudo());
-        PersistentData.getClub().setClubResTotal(ClubController.ingresosPrevistos(PersistentData.getClub().getClubIngresos(),
-                PersistentData.getClub().getClubIngresosPrevistos()
-        ));
-
-        textIngresos.setText(PersistentData.getClub().getClubIngresos() + "");
-        textGastos.setText(PersistentData.getClub().getClubGastos() + "");
-        textTotal.setText(PersistentData.getClub().getClubResTotal() + "");
-        textPrev.setText("" + ClubController.dineroTotal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubIngresosPrevistos(), PersistentData.getClub().getClubGastos()));
-        textSit.setText("" + ClubController.dineroReal(PersistentData.getClub().getClubIngresos(), PersistentData.getClub().getClubGastos()));
-    }
 }

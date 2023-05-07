@@ -23,7 +23,7 @@ public class AdministradorController {
         //System.out.println(EPass);
         Administrador user = null;
         Connection cnx = Conexion.getConnection();
-        String sql = "SELECT * FROM Administrador WHERE Administrador_Email = ? AND Administrador_pwd = ?";
+        String sql = "SELECT * FROM Administrador WHERE Administrador_Email = ? AND Administrador_pwd = ? AND Administrador_fechaBaja is null";
         PreparedStatement ps = cnx.prepareStatement(sql);
         ps.setString(1, email);
         ps.setString(2, EPass);
@@ -36,8 +36,6 @@ public class AdministradorController {
         if (rs.next()) {
             if(rs.getDate("Administrador_FechaAlta")!=null)
                 fechaAlta = new Date(rs.getDate("Administrador_FechaAlta").getTime());
-            if(rs.getDate("Administrador_FechaBaja")!=null)
-                fechaBaja = new Date(rs.getDate("Administrador_FechaBaja").getTime());
             if(rs.getDate("Administrador_FechaNacimiento")!=null)
                 fechaNacimiento = new Date(rs.getDate("Administrador_FechaNacimiento").getTime());
 
@@ -93,7 +91,6 @@ public class AdministradorController {
         sql = "UPDATE Administrador SET Administrador_pwd = ? WHERE Administrador_id = ?";
 
         for (Integer id: passwords.keySet()) {
-
             ps = Conexion.getConnection().prepareStatement(sql);
             ps.setString(1, Encrypter.encriptar(passwords.get(id), newEncryptKey));
             ps.setInt(2, id);
@@ -200,6 +197,33 @@ public class AdministradorController {
         ps.setDouble(10, administrador.getSalario());
         ps.setString(11, administrador.getCuentaBancaria());
 
+
+        ps.executeUpdate();
+
+        ps.close();
+    }
+
+    public static void updateUser(Administrador user) throws SQLException, ParseException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        String sql = "UPDATE Administrador SET " +
+                "Administrador_Nombre = ?, Administrador_Apellidos = ?, " +
+                "Administrador_Email = ?, Administrador_Area = ?, " +
+                "Administrador_DNI = ?, Administrador_fechaNacimiento = ?, Administrador_Salario = ?," +
+                "Administrador_cuentaBancaria = ?, Administrador_Telefono = ?, Administrador_pwd = ? " +
+                "WHERE Administrador_id = ?";
+
+        PreparedStatement ps = Conexion.getConnection().prepareStatement(sql);
+
+        ps.setString(1, user.getNombre());
+        ps.setString(2, user.getApellidos());
+        ps.setString(3, user.getEmail());
+        ps.setString(4, user.getArea());
+        ps.setString(5, user.getDni());
+        ps.setDate(6, new java.sql.Date(user.getFechaNacimientoDate().getTime()));
+        ps.setDouble(7, user.getSalario());
+        ps.setString(8, user.getCuentaBancaria());
+        ps.setString(9, user.getTelefono());
+        ps.setString(10, Encrypter.encriptar(user.getPwd(), PersistentData.getEncryptKey()));
+        ps.setInt(11, user.getId());
 
         ps.executeUpdate();
 
